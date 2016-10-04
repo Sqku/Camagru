@@ -36,7 +36,7 @@ else
     $pseudo = $_POST['pseudo'];
     if (empty($_POST['pseudo']) || empty($_POST['password']) )
     {
-        $message = ';
+        $message = '';
     }
     else
     {
