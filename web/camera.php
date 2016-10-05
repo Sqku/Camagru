@@ -6,13 +6,6 @@ include("menu.php");
 
 ?>
 
-<style>
-    .cadre {
-        max-height: 100px;
-        width: auto;
-    }
-</style>
-
 <div style="position: relative; width: 800px;">
     <video id="video"></video>
     <canvas id="canvas" style="position: absolute; top: 0; left: 0;"></canvas>
@@ -30,6 +23,16 @@ include("menu.php");
 
 <button id="startbutton">Prendre une photo</button>
 <button id="resetbutton" style="display:none">Recommencer</button>
+
+
+<form method="post" action="save.php">
+    <input type="hidden" value="" name="b64_img" id="b64_img">
+    <input type="hidden" value="" name="id_cadre" id="id_cadre">
+    <button type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
+</form>
+
+
+
 <img src="" id="photo" alt="photo" style="display: none">
 
 <script src="js/camera.js" type="text/javascript"></script>

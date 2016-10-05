@@ -7,6 +7,8 @@
         photo        = document.querySelector('#photo'),
         startbutton  = document.querySelector('#startbutton'),
         resetbutton  = document.querySelector('#resetbutton'),
+        savebutton  = document.querySelector('#savebutton'),
+        b64_img  = document.querySelector('#b64_img'),
         width = 800,
         height = 600;
 
@@ -51,7 +53,15 @@
         canvas.getContext('2d').drawImage(video, 0, 0, width, height);
         var data = canvas.toDataURL('image/png');
         photo.setAttribute('src', data);
+        b64_img.setAttribute("value", data);
         resetbutton.style.display="block";
+        // if (document.getElementById('id_cadre').getAttribute('value') == '')
+        // {
+        //     savebutton.style.display="none";
+        // }
+        // else
+            savebutton.style.display="block";
+
         startbutton.style.display="none";
     }
 
@@ -64,7 +74,9 @@
         ev.preventDefault();
         canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
         photo.setAttribute("src", ' ');
+        b64_img.setAttribute("value", '');
         resetbutton.style.display="none";
+        savebutton.style.display="none";
         startbutton.style.display="block";
     });
 
@@ -75,7 +87,9 @@
         document.getElementById('cadre_' + i).addEventListener('click', function () {
             // this.style.border = '1px solid red';
             document.getElementById('apercu').setAttribute('src', this.src);
-            console.log('cadre_' + this.alt + ' Cliked');
+            document.getElementById('id_cadre').setAttribute('value', this.alt);
+            console.log('cadre_' + this.alt + ' Clicked');
+            savebutton.disabled = false;
         });
     }
 

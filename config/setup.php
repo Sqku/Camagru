@@ -75,7 +75,7 @@ DROP TABLE IF EXISTS `camagru`.`images` ;
 CREATE TABLE IF NOT EXISTS `camagru`.`images` (
 `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `users_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_images_users_idx` (`users_id` ASC),
   CONSTRAINT `fk_images_users`
