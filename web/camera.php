@@ -21,6 +21,14 @@ include("menu.php");
 </div>
 
 
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Uploader une image :
+    <input type="file" name="fileToUpload" id="upload_img" accept="image/*">
+    <input type="hidden" value="" name="id_cadre" id="id_cadre">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+
+
 <button id="startbutton">Prendre une photo</button>
 <button id="resetbutton" style="display:none">Recommencer</button>
 

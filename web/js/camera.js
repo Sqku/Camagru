@@ -55,13 +55,7 @@
         photo.setAttribute('src', data);
         b64_img.setAttribute("value", data);
         resetbutton.style.display="block";
-        // if (document.getElementById('id_cadre').getAttribute('value') == '')
-        // {
-        //     savebutton.style.display="none";
-        // }
-        // else
-            savebutton.style.display="block";
-
+        savebutton.style.display="block";
         startbutton.style.display="none";
     }
 

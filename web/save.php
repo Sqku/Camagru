@@ -34,11 +34,12 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
         {
             $user_id= $_SESSION['id'];
             try {
-                $query=$db->prepare('INSERT INTO images (user_id)
+                $query=$db->prepare('INSERT INTO images (users_id)
                 VALUES (:user_id)');
                 $query->bindValue(':user_id', $user_id, PDO::PARAM_INT);
                 $query->execute();
             } catch (PDOException $e) {
+                echo 'save.php: ';
                 echo 'Pdo error: '.$e->getMessage();
                 die();
             }
