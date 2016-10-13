@@ -10,6 +10,7 @@ include("menu.php");
     <video id="video"></video>
     <canvas id="canvas" style="position: absolute; top: 0; left: 0;"></canvas>
     <img id="apercu" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 2; top: 0; left: 0;">
+    <img id="img-preview" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 1; top: 0; left: 0;">
 </div>
 
 <div>
@@ -21,11 +22,11 @@ include("menu.php");
 </div>
 
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form id="upload_form" action="upload.php" method="post" enctype="multipart/form-data">
     Uploader une image :
     <input type="file" name="fileToUpload" id="upload_img" accept="image/*">
     <input type="hidden" value="" name="id_cadre" id="id_cadre">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="submit" value="Upload Image" id="uploadbutton" name="submit">
 </form>
 
 
