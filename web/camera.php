@@ -36,7 +36,7 @@ include("menu.php");
 
 <form method="post" action="save.php">
     <input type="hidden" value="" name="b64_img" id="b64_img">
-    <input type="hidden" value="" name="id_cadre" id="id_cadre">
+    <input type="hidden" value="" name="id_cadre" id="id_cadre2">
     <button type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
 </form>
 

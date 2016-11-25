@@ -75,3 +75,46 @@ label {
     max-height: 100px;
     width: auto;
 }
+
+
+.min{
+    background:#FFFFFF url(fondbloc.jpg) top left no-repeat;
+    float:left;
+    margin:0 1px 1px 0;
+    padding:10px 10px 13px 10px;
+    position:relative;
+    height:112px;
+    width:215px;
+}
+.min a{
+    display:block;
+    height:100%;
+    position:relative;
+    width:100%;
+    overflow:hidden;
+}
+.min img{
+    position:relative;
+    width:100%;
+}
+.min:hover h3{
+    background:#000 none repeat scroll 0 0;
+    bottom:0;
+    color:#FFF;
+    font-family:Arial;
+    font-size:9px;
+    font-weight:normal;
+    left:0;
+    margin:0;
+    width:205px;
+    display:block;
+    padding:5px;
+    position:absolute;
+    text-transform:uppercase;
+}
+.min:hover{
+    background-position:bottom left;
+}
+.min h3{
+    display:none;
+}

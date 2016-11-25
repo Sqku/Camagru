@@ -46,7 +46,7 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
 
             $query->CloseCursor();
 
-            imagepng($tmp_img, '/nfs/2014/a/ahua/42/Camagru/ahua/web/img/uploads/'.$db->lastInsertId().'.png');
+            imagepng($tmp_img, '/Users/ahua/42/Camagru/ahua/web/img/uploads/'.$db->lastInsertId().'.png');
             imagedestroy($tmp_img);
             header('Location: camera.php');
         }

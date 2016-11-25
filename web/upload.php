@@ -56,6 +56,8 @@ if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
 
                 imagepng($tmp_img, '/nfs/2014/a/ahua/42/Camagru/ahua/web/img/uploads/' . $db->lastInsertId() . '.png');
                 imagedestroy($tmp_img);
+                echo "salut";
+                die();
                 header('Location: camera.php');
             }
         }
@@ -66,6 +68,8 @@ if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
 
     }
 }
+else
+    echo "sad";
 
 
 ?>
