@@ -7,25 +7,63 @@ include("menu.php");
 ?>
 
 
-
 <?php
 
 $id = $_GET['id'];
 
-$query=$db->prepare('SELECT id FROM images ORDER BY date DESC');
-$query->execute();
-$data=$query->fetchAll();
-
-$query->CloseCursor();
 ?>
-
 <img src="img/uploads/<?=$id?>.png">
 
-
-<form action="commentaire.php" method="post">
+<form action="apercu.php?id=<?=$id?>" method="post">
     <textarea name="commentaire" style="width:450px;height:150px;"></textarea>
     <input type="submit" value="commenter">
 </form>
+
+
+<?php
+
+$query=$db->prepare('SELECT * FROM commentaires ORDER BY date DESC');
+$query->execute();
+$data=$query->fetchAll();
+
+foreach($data as $comment) : ?>
+
+    <div>
+        <?
+            if($comment["images_id"]==$id)
+                echo $comment["commentaire"];
+        ?><br/>
+    </div>
+<?php endforeach;
+
+
+
+
+?>
+
+
+<?php
+
+$comment = $_POST["commentaire"];
+$userid = $_SESSION["id"];
+
+try {
+$query=$db->prepare('INSERT INTO commentaires (commentaire, users_id, images_id)
+VALUES (:comment, :users, :img)');
+$query->bindValue(':comment', $comment, PDO::PARAM_STR);
+$query->bindValue(':users', $userid, PDO::PARAM_INT);
+$query->bindValue(':img', $id, PDO::PARAM_INT);
+$query->execute();
+} catch (PDOException $e) {
+echo 'Pdo error: '.$e->getMessage();
+die();
+}
+
+$query->CloseCursor();
+
+//header('Location: apercu.php');
+
+?>
 
 
 
