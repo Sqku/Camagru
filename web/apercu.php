@@ -31,7 +31,19 @@ foreach($data as $comment) : ?>
     <div>
         <?
             if($comment["images_id"]==$id)
-                echo $comment["commentaire"];
+            {
+                echo '<table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                     <td><strong>Par : ' . stripslashes($donnees_messages['pseudo']) . '</strong></td>
+                </tr>
+                <tr>
+                     <td>' . nl2br(stripslashes($comment['commentaire'])) . '</td>
+                </tr>
+                </table><br /><br />';
+
+            }
+
+
         ?><br/>
     </div>
 <?php endforeach;
@@ -61,7 +73,7 @@ die();
 
 $query->CloseCursor();
 
-//header('Location: apercu.php');
+header('Location: apercu.php');
 
 ?>
 

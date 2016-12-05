@@ -14,7 +14,7 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
         $errors['b64_img'] = true;
     if (empty($errors))
     {
-        $filter_root = '/nfs/2014/a/ahua/42/Camagru/ahua/web/img/cadres/'.$_POST['id_cadre'].'.png';
+        $filter_root = $_SERVER['DOCUMENT_ROOT'].'/img/cadres/'.$_POST['id_cadre'].'.png';
         $tmp_img = imagecreatefromstring(base64_decode(explode(',', $_POST['b64_img'])[1]));
         $width = 800;
         $height = 600;

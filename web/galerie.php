@@ -6,13 +6,6 @@ include("menu.php");
 
 ?>
 
-<head>
-<!--    <script type="text/javascript" src="zoombox/jquery.js"></script>-->
-<!--    <script type="text/javascript" src="zoombox/zoombox.js"></script>-->
-<!--    <link rel="stylesheet" type="text/css" href="theme/style.css" />-->
-<!--    <link href="zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen" />-->
-</head>
-
 <body>
 <?php
 if(isset($erreur)){
@@ -23,7 +16,30 @@ if(isset($erreur)){
 
 <?php
 
-$query=$db->prepare('SELECT * FROM images ORDER BY date DESC');
+$img_par_page=3;
+
+$query2=$db->prepare('SELECT COUNT(*) AS total FROM images');
+$query2->execute();
+$data2=$query2->fetchAll();
+$total=$data2[0]['total'];
+
+$nb_page=ceil($total/$img_par_page);
+
+if (isset($_GET['page']))
+{
+    $page_actu=intval($_GET['page']);
+
+    if($page_actu > $nb_page)
+        $page_actu = $nb_page;
+}
+else
+{
+    $page_actu = 1;
+}
+
+$premiere_entree = ($page_actu - 1) * $img_par_page;
+
+$query=$db->prepare('SELECT * FROM images ORDER BY date DESC LIMIT '.$premiere_entree.', '.$img_par_page.'');
 $query->execute();
 $data=$query->fetchAll();
 
@@ -39,6 +55,20 @@ foreach($data as $img) : ?>
 
 <?php endforeach;
 $query->CloseCursor();
+
+?> </br> <?php
+echo '<p align="center">Page : ';
+
+for($i = 1; $i<=$nb_page; $i++)
+{
+    if($i == $page_actu)
+        echo $i;
+    else
+        echo ' <a href="galerie.php?page='.$i.'">'.$i.'</a> ';
+}
+echo '</p>';
+
+
 ?>
 
 </body>

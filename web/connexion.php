@@ -84,11 +84,12 @@ else
 include("footer.php");
 ?>
 
-//<input type="hidden" name="page" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
+<input type="hidden" name="page" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
 
-//<?php
-//$page = htmlspecialchars($_POST['page']);
-//echo 'Cliquez <a href="'.$page.'">ici</a> pour revenir à la page précédente';
-//?>
+<?php
+echo $_SERVER['HTTP_REFERER'];
+$page = htmlspecialchars($_POST['page']);
+echo 'Cliquez <a href="'.$page.'">ici</a> pour revenir à la page précédente';
+?>
 
 
