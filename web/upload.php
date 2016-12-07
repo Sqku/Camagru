@@ -19,7 +19,7 @@ if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
     if ($_FILES['fileToUpload']['size'] > $GLOBALS['MAX_UPLOAD_SIZE'])
         $errors['size'] = true;
     if (empty($errors)) {
-        $filter_root = '/nfs/2014/a/ahua/42/Camagru/ahua/web/img/cadres/' . $_POST['id_cadre'] . '.png';
+        $filter_root = $_SERVER['DOCUMENT_ROOT'].'/img/cadres/'.$_POST['id_cadre'] . '.png';
         try {
             $tmp_img = imagecreatefromstring(file_get_contents($_FILES['fileToUpload']['tmp_name']));
         } catch (\Exception $e) {
@@ -54,7 +54,7 @@ if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
 
                 $query->CloseCursor();
 
-                imagepng($tmp_img, '/nfs/2014/a/ahua/42/Camagru/ahua/web/img/uploads/' . $db->lastInsertId() . '.png');
+                imagepng($tmp_img, $_SERVER['DOCUMENT_ROOT'].'/img/uploads/'.$db->lastInsertId().'.png');
                 imagedestroy($tmp_img);
 //                echo "salut";
 //                die();

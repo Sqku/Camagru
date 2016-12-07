@@ -1,5 +1,12 @@
 <?php
 include("db_start.php");
+
+if (!isset($_SESSION['id']) || empty($_SESSION['id']))
+{
+    header('Location:connexion.php');
+    die();
+}
+
 include("debut.php");
 include("header.php");
 include("menu.php");

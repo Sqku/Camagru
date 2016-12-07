@@ -1,5 +1,4 @@
 <?php
-    //session_start();
     include("db_start.php");
     include("debut.php");
     include("header.php");
@@ -36,7 +35,7 @@ else
     $pseudo = $_POST['pseudo'];
     if (empty($_POST['pseudo']) || empty($_POST['password']) )
     {
-        $message = '';
+        $message = 'Veuillez completer le champs "Pseudo" et le champs "Mot de Passe"';
     }
     else
     {
@@ -81,15 +80,17 @@ else
 
 }
 
-include("footer.php");
+
 ?>
 
 <input type="hidden" name="page" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
+</br>
 
 <?php
-echo $_SERVER['HTTP_REFERER'];
 $page = htmlspecialchars($_POST['page']);
 echo 'Cliquez <a href="'.$page.'">ici</a> pour revenir à la page précédente';
+
+include("footer.php");
 ?>
 
 

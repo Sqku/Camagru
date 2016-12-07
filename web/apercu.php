@@ -12,9 +12,10 @@ include("menu.php");
 $id = $_GET['id'];
 
 ?>
+
 <img src="img/uploads/<?=$id?>.png">
 
-<form action="apercu.php?id=<?=$id?>" method="post">
+<form action="commentaires.php?id=<?=$id?>" method="post">
     <textarea name="commentaire" style="width:450px;height:150px;"></textarea>
     <input type="submit" value="commenter">
 </form>
@@ -22,22 +23,30 @@ $id = $_GET['id'];
 
 <?php
 
-$query=$db->prepare('SELECT * FROM commentaires ORDER BY date DESC');
+$query=$db->prepare("SELECT * FROM commentaires WHERE images_id=$id ORDER BY date DESC");
 $query->execute();
-$data=$query->fetchAll();
+$data=$query->fetchAll(\PDO::FETCH_ASSOC);
+
 
 foreach($data as $comment) : ?>
 
+<?php
+    $tmp = $comment['users_id'];
+    $query2=$db->prepare("SELECT user_name FROM users WHERE id=$tmp");
+    $query2->execute();
+    $data2=$query2->fetchAll(\PDO::FETCH_ASSOC);
+
+    ?>
     <div>
         <?
             if($comment["images_id"]==$id)
             {
                 echo '<table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                     <td><strong>Par : ' . stripslashes($donnees_messages['pseudo']) . '</strong></td>
+                     <td><strong>Par : ' . stripslashes(htmlspecialchars($data2[0]['user_name'])) . '</strong></td>
                 </tr>
                 <tr>
-                     <td>' . nl2br(stripslashes($comment['commentaire'])) . '</td>
+                     <td>' . nl2br(stripslashes(htmlspecialchars($comment['commentaire']))) . '</td>
                 </tr>
                 </table><br /><br />';
 
@@ -48,34 +57,12 @@ foreach($data as $comment) : ?>
     </div>
 <?php endforeach;
 
-
-
-
-?>
-
-
-<?php
-
-$comment = $_POST["commentaire"];
-$userid = $_SESSION["id"];
-
-try {
-$query=$db->prepare('INSERT INTO commentaires (commentaire, users_id, images_id)
-VALUES (:comment, :users, :img)');
-$query->bindValue(':comment', $comment, PDO::PARAM_STR);
-$query->bindValue(':users', $userid, PDO::PARAM_INT);
-$query->bindValue(':img', $id, PDO::PARAM_INT);
-$query->execute();
-} catch (PDOException $e) {
-echo 'Pdo error: '.$e->getMessage();
-die();
-}
-
-$query->CloseCursor();
-
-header('Location: apercu.php');
+include("footer.php");
 
 ?>
+
+
+
 
 
 

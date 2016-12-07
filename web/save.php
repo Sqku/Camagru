@@ -1,11 +1,6 @@
 <?php
 
 include("db_start.php");
-//include("debut.php");
-
-
-//echo '<pre>';
-//print_r($_POST);
 
 if (!empty($_POST) && isset($_SESSION['pseudo']))
 {
@@ -46,7 +41,7 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
 
             $query->CloseCursor();
 
-            imagepng($tmp_img, '/Users/ahua/42/Camagru/ahua/web/img/uploads/'.$db->lastInsertId().'.png');
+            imagepng($tmp_img, $_SERVER['DOCUMENT_ROOT'].'/img/uploads/'.$db->lastInsertId().'.png');
             imagedestroy($tmp_img);
             header('Location: camera.php');
         }
