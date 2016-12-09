@@ -11,16 +11,19 @@ include("menu.php");
 
 $id = $_GET['id'];
 
-?>
-
-<?php
-
-$query3 = $db->prepare("SELECT COUNT(*) AS nbr FROM images WHERE id=?");
+$query3 = $db->prepare("SELECT * FROM images WHERE id=?");
 $query3->execute(array($_GET['id']));
 $data3 = $query3->fetch(PDO::FETCH_ASSOC);
+echo '<pre>';
+print_r($data3);
 
-if ($data3['nbr'] == 0)
+if (!$data3)
+{
+    http_response_code(404);
     echo "Cette image n'existe pas";
+    include("footer.php");
+    die();
+}
 else
 {
 
@@ -30,12 +33,18 @@ else
     </div>
 
     <div class="vote">
-        <div class="vote_bar"></div>
-    </div>
+        <div class="vote_bar">
+            <div class="vote_progress" style="width:<?= ($data3['like_count'] + $data3['dislike_count']) == 0 ? 100 : round(100 * ($data3['like_count'] / ($data3['like_count'] + $data3['dislike_count'])));?>%;"></div>
+        </div>
 
-    <div class="votebtns">
-        <button class="vote_btn vote_like">10</button>
-        <button class="vote_btn vote_dislike">1</button>
+        <div class="votebtns">
+            <form action="like.php?id=<?=$id?>&vote=1" method="POST">
+                <button type="submit" class="vote_btn vote_like"><?= $data3['like_count'] ?></button>
+            </form>
+            <form action="like.php?id=<?=$id?>&vote=-1" method="POST">
+                <button type="submit" class="vote_btn vote_dislike"><?= $data3['dislike_count'] ?></button>
+            </form>
+        </div>
     </div>
 
     <form action="commentaires.php?id=<?= $id ?>" method="post">
@@ -61,7 +70,7 @@ else
 
         ?>
         <div>
-            <?
+            <?php
             if ($comment["images_id"] == $id) {
                 echo '<table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
