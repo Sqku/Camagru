@@ -76,8 +76,8 @@ CREATE TABLE IF NOT EXISTS `camagru`.`images` (
 `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `users_id` INT NOT NULL,
-  `like_count` INT NULL,
-  `dislike_count` INT NULL,
+  `like_count` INT NULL DEFAULT 0,
+  `dislike_count` INT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_images_users_idx` (`users_id` ASC),
   CONSTRAINT `fk_images_users`

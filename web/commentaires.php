@@ -1,7 +1,21 @@
 <?php
 include("db_start.php");
 
+if (!isset($_SESSION['id']) || empty($_SESSION['id']))
+{
+    header('Location:connexion.php');
+    die();
+}
+
 $id = $_GET['id'];
+
+if(!is_numeric($id))
+{
+    http_response_code(404);
+    echo "Cette image n'existe pas";
+    include("footer.php");
+    die();
+}
 
 if (!empty($_POST) && isset($_SESSION['pseudo']))
 {

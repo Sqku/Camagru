@@ -22,7 +22,7 @@ if($_GET['vote'] == 1)
 {
     $vote->like($_GET['id'], $_SESSION['id']);
 }
-else
+else if($_GET['vote'] == -1)
 {
     $vote->dislike($_GET['id'], $_SESSION['id']);
 }

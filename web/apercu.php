@@ -1,8 +1,11 @@
 <?php
 include("db_start.php");
+
 include("debut.php");
 include("header.php");
 include("menu.php");
+
+require("Vote.class.php");
 
 ?>
 
@@ -10,6 +13,14 @@ include("menu.php");
 <?php
 
 $id = $_GET['id'];
+
+if(!is_numeric($id))
+{
+    http_response_code(404);
+    echo "Cette image n'existe pas";
+    include("footer.php");
+    die();
+}
 
 $query3 = $db->prepare("SELECT * FROM images WHERE id=?");
 $query3->execute(array($_GET['id']));
@@ -27,12 +38,18 @@ if (!$data3)
 else
 {
 
+    $query4 = $db->prepare("SELECT * FROM likes WHERE users_id = ? AND images_id = ?");
+    $query4->execute(array($_SESSION['id'], $_GET['id']));
+    $data4 = $query4->fetch();
+    print_r($data4);
+
+
     ?>
     <div class="apercu_image">
         <img src="img/uploads/<?= $id ?>.png"></br>
     </div>
 
-    <div class="vote">
+    <div class="vote <?= Vote::getClass($vote); ?>">
         <div class="vote_bar">
             <div class="vote_progress" style="width:<?= ($data3['like_count'] + $data3['dislike_count']) == 0 ? 100 : round(100 * ($data3['like_count'] / ($data3['like_count'] + $data3['dislike_count'])));?>%;"></div>
         </div>

@@ -155,10 +155,10 @@ label {
 
 }
 
-.vote_like:hover{
+.vote_like:hover, .is-liked .vote_like{
     color: green;
 }
 
-.vote_dislike:hover{
+.vote_dislike:hover, .is-disliked .vote_dislike{
     color: red;
 }
