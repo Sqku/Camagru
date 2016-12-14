@@ -6,7 +6,13 @@
 ?>
 
 <?php
-if ($id!=0) erreur(ERR_IS_CO);
+if ($id!=0)
+{
+    $message = '<p>Cliquez <a href="./index.php">ici</a> pour aller à la page d\'accueil';
+    echo "Vous êtes déjà connecté";
+    echo stripslashes($message);
+    die();
+}
 ?>
 
 <?php
@@ -22,7 +28,8 @@ if (!isset($_POST['pseudo']))
 	</p>
 	</fieldset>
 	<p><input type="submit" value="Connexion" /></p></form>
-	<a href="register.php">Pas encore inscrit ?</a>
+	<a href="register.php">Pas encore inscrit ?</a></br>
+	<a href="new_pass.php">Mot de passe oublie</a>
 	 
 	</div>
 	</body>

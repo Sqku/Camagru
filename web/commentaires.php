@@ -3,7 +3,10 @@ include("db_start.php");
 
 if (!isset($_SESSION['id']) || empty($_SESSION['id']))
 {
-    header('Location:connexion.php');
+    $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
+    erreur(ERR_IS_CO);
+    echo $message;
+    include("footer.php");
     die();
 }
 
@@ -61,9 +64,9 @@ VALUES (:comment, :users, :img)');
         echo 'Pdo error: ' . $e->getMessage();
         die();
     }
+    $query->CloseCursor();
+
+
 }
-$query->CloseCursor();
-
 header('Location:apercu.php?id='.$id);
-
 ?>

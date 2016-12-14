@@ -128,24 +128,24 @@ class Vote
 
     }
 
-    public function updateCount($id)
-    {
-        $query=$this->pdo->prepare("SELECT COUNT(id) as count, vote FROM likes WHERE images_id = ? GROUP BY vote ");
-        $query->execute(array($id));
-        $data=$query->fetchAll(PDO::FETCH_ASSOC);
-
-        $counts = ['-1' => 0, '1' => 0];
-
-        foreach($data as $vote)
-        {
-            $counts[$vote->vote] = $vote->count;
-        }
-
-        $query = $this->pdo-prepare("UPDATE images SET like_count = {$counts['1']}, dislike_count = {$counts['-1']} WHERE id = $id");
-        $query->execute();
-
-        return true;
-    }
+//    public function updateCount($id)
+//    {
+//        $query=$this->pdo->prepare("SELECT COUNT(id) as count, vote FROM likes WHERE images_id = ? GROUP BY vote ");
+//        $query->execute(array($id));
+//        $data=$query->fetchAll(PDO::FETCH_ASSOC);
+//
+//        $counts = ['-1' => 0, '1' => 0];
+//
+//        foreach($data as $vote)
+//        {
+//            $counts[$vote->vote] = $vote->count;
+//        }
+//
+//        $query = $this->pdo-prepare("UPDATE images SET like_count = {$counts['1']}, dislike_count = {$counts['-1']} WHERE id = $id");
+//        $query->execute();
+//
+//        return true;
+//    }
 
     public static function getClass($vote)
     {

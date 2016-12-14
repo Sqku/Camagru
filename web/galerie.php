@@ -58,16 +58,27 @@ foreach($data as $img) : ?>
 $query->CloseCursor();
 
 ?> </br> <?php
-echo '<p align="center">Page : ';
 
-for($i = 1; $i<=$nb_page; $i++)
+if($data)
 {
-    if($i == $page_actu)
-        echo $i;
-    else
-        echo ' <a href="galerie.php?page='.$i.'">'.$i.'</a> ';
+
+    echo '<p align="center">Page : ';
+
+    for ($i = 1; $i <= $nb_page; $i++) {
+        if ($i == $page_actu)
+            echo $i;
+        else
+            echo ' <a href="galerie.php?page=' . $i . '">' . $i . '</a> ';
+    }
+    echo '</p>';
+    include("footer.php");
 }
-echo '</p>';
+else
+{
+    include("footer.php");
+    die();
+}
+
 
 
 ?>
