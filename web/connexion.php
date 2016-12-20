@@ -62,7 +62,7 @@ else
                 $_SESSION['pseudo'] = $data['user_name'];
                 $_SESSION['level'] = $data['lvl'];
                 $_SESSION['id'] = $data['id'];
-                $message = '<p>Bienvenue '.$data['user_name'].', 
+                $message = '<p>Bienvenue '.htmlspecialchars($data['user_name']).', 
                 vous êtes maintenant connecté!</p>
                 <p>Cliquez <a href="./deconnexion.php">ici</a> 
                 pour vous deconnecter</p>';

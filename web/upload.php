@@ -47,7 +47,7 @@ if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
                     $query->bindValue(':user_id', $user_id, PDO::PARAM_INT);
                     $query->execute();
                 } catch (PDOException $e) {
-                    echo 'save.php: ';
+                    echo 'upload.php: ';
                     echo 'Pdo error: ' . $e->getMessage();
                     die();
                 }

@@ -25,8 +25,6 @@ if(!is_numeric($id))
 $query3 = $db->prepare("SELECT * FROM images WHERE id=?");
 $query3->execute(array($_GET['id']));
 $data3 = $query3->fetch(PDO::FETCH_ASSOC);
-echo '<pre>';
-print_r($data3);
 
 if (!$data3)
 {
@@ -41,7 +39,6 @@ else
     $query4 = $db->prepare("SELECT * FROM likes WHERE users_id = ? AND images_id = ?");
     $query4->execute(array($_SESSION['id'], $_GET['id']));
     $data4 = $query4->fetch();
-    print_r($data4);
 
 
     ?>
@@ -49,16 +46,36 @@ else
         <img src="img/uploads/<?= $id ?>.png"></br>
     </div>
 
+    <?php
+
+    if($data3['users_id'] == $_SESSION['id'])
+    {
+        ?>
+        <div>
+            <form action="delete.php" method="post">
+                <input type="hidden" name="id" value="<?=$id?>" >
+                <button type="submit" class="delete">Supprimer le montage</button>
+            </form>
+        </div>
+        <?php
+    }
+
+    ?>
+
     <div class="vote <?= Vote::getClass($vote); ?>">
         <div class="vote_bar">
             <div class="vote_progress" style="width:<?= ($data3['like_count'] + $data3['dislike_count']) == 0 ? 100 : round(100 * ($data3['like_count'] / ($data3['like_count'] + $data3['dislike_count'])));?>%;"></div>
         </div>
 
         <div class="votebtns">
-            <form action="like.php?id=<?=$id?>&vote=1" method="POST">
+            <form action="like.php" method="post">
+                <input type="hidden" name="id" value="<?=$id?>" >
+                <input type="hidden" name="vote" value="1" >
                 <button type="submit" class="vote_btn vote_like"><?= $data3['like_count'] ?></button>
             </form>
-            <form action="like.php?id=<?=$id?>&vote=-1" method="POST">
+            <form action="like.php" method="post">
+                <input type="hidden" name="id" value="<?=$id?>" >
+                <input type="hidden" name="vote" value="-1" >
                 <button type="submit" class="vote_btn vote_dislike"><?= $data3['dislike_count'] ?></button>
             </form>
         </div>
@@ -75,6 +92,7 @@ else
     $query = $db->prepare("SELECT * FROM commentaires WHERE images_id=$id ORDER BY date DESC");
     $query->execute();
     $data = $query->fetchAll(\PDO::FETCH_ASSOC);
+    $query->CloseCursor();
 
 
     foreach ($data as $comment) : ?>
@@ -84,6 +102,7 @@ else
         $query2 = $db->prepare("SELECT user_name FROM users WHERE id=$tmp");
         $query2->execute();
         $data2 = $query2->fetchAll(\PDO::FETCH_ASSOC);
+        $query2->CloseCursor();
 
         ?>
         <div>

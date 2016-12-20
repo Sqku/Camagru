@@ -8,25 +8,25 @@ if (!isset($_SESSION['id']) || empty($_SESSION['id']))
     die();
 }
 
-//if($_SERVEUR['REQUEST_METHOD'] != 'POST')
-//{
-//    http_response_code(403);
-//    die();
-//}
+if($_SERVER['REQUEST_METHOD'] != 'POST')
+{
+    http_response_code(403);
+    die();
+}
 
 require 'Vote.class.php';
 
 $vote = new Vote($db);
 
-if($_GET['vote'] == 1)
+if($_POST['vote'] == 1)
 {
-    $vote->like($_GET['id'], $_SESSION['id']);
+    $vote->like($_POST['id'], $_SESSION['id']);
 }
-else if($_GET['vote'] == -1)
+else if($_POST['vote'] == -1)
 {
-    $vote->dislike($_GET['id'], $_SESSION['id']);
+    $vote->dislike($_POST['id'], $_SESSION['id']);
 }
 
-header('location: apercu.php?id='.$_GET['id']);
+header('location: apercu.php?id='.$_POST['id']);
 
 ?>

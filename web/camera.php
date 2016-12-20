@@ -30,13 +30,11 @@ include("menu.php");
         </ul>
     </div>
 
+    <a href="upload_image.php">Uploader une image</a>
 
-    <form id="upload_form" action="upload.php" method="post" enctype="multipart/form-data">
-        Uploader une image :
-        <input type="file" name="fileToUpload" id="upload_img" accept="image/*">
-        <input type="hidden" value="" name="id_cadre" id="id_cadre">
-        <input type="submit" value="Upload Image" id="uploadbutton" name="submit">
-    </form>
+<?php
+
+?>
 
 
     <button id="startbutton">Prendre une photo</button>
@@ -45,7 +43,7 @@ include("menu.php");
 
     <form method="post" action="save.php">
         <input type="hidden" value="" name="b64_img" id="b64_img">
-        <input type="hidden" value="" name="id_cadre" id="id_cadre2">
+        <input type="hidden" value="" name="id_cadre" id="id_cadre">
         <button type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
     </form>
 
@@ -54,6 +52,76 @@ include("menu.php");
     <img src="" id="photo" alt="photo" style="display: none">
 
     <script src="js/camera.js" type="text/javascript"></script>
+
+<?php
+
+$img_par_page=3;
+
+$query2=$db->prepare("SELECT COUNT(*) AS total FROM images WHERE users_id = $id");
+$query2->execute();
+$data2=$query2->fetchAll();
+$total=$data2[0]['total'];
+
+$nb_page=ceil($total/$img_par_page);
+
+if (isset($_GET['page']))
+{
+    $page_actu=intval($_GET['page']);
+
+    if($page_actu > $nb_page)
+        $page_actu = $nb_page;
+}
+else
+{
+    $page_actu = 1;
+}
+
+$premiere_entree = ($page_actu - 1) * $img_par_page;
+
+$query=$db->prepare("SELECT * FROM images WHERE users_id = $id ORDER BY date DESC LIMIT $premiere_entree, $img_par_page");
+$query->execute();
+$data=$query->fetchAll();
+
+
+foreach($data as $img) : ?>
+
+    <div class="min">
+        <a href="apercu.php?id=<?=$img['id']?>">
+            <!--        <a href="img/uploads/--><?//=$img['id']?><!--.png">-->
+            <img src="img/uploads/<?=$img['id']?>.png" alt="<?=$img['id']?>">
+        </a>
+    </div>
+
+<?php endforeach;
+$query->CloseCursor();
+
+?> </br> <?php
+
+if($data)
+{
+
+    echo '<p align="center">Page : ';
+
+    for ($i = 1; $i <= $nb_page; $i++) {
+        if ($i == $page_actu)
+            echo $i;
+        else
+            echo ' <a href="galerie.php?page=' . $i . '">' . $i . '</a> ';
+    }
+    echo '</p>';
+    include("footer.php");
+}
+else
+{
+    include("footer.php");
+    die();
+}
+
+?>
+
+
+
+
 <?php
     include("footer.php");
 ?>

@@ -8,25 +8,25 @@
         startbutton = document.querySelector('#startbutton'),
         resetbutton = document.querySelector('#resetbutton'),
         savebutton = document.querySelector('#savebutton'),
-        uploadbutton = document.querySelector('#uploadbutton'),
-        upload_form = document.querySelector('#upload_form'),
-        upload_img = document.querySelector('#upload_img'),
+        // uploadbutton = document.querySelector('#uploadbutton'),
+        // upload_form = document.querySelector('#upload_form'),
+        // upload_img = document.querySelector('#upload_img'),
         b64_img = document.querySelector('#b64_img'),
         width = 800,
         height = 600;
 
-        upload_img.onchange = function (e) {
-            e.preventDefault();
-
-            var file = this.files[0];
-            var url = URL.createObjectURL(file);
-            var img = new Image(640, 480);
-
-            document.getElementById('img-preview').setAttribute('src', url);
-            img.src = url;
-            img.setAttribute('crossOrigin', 'anonymous');
-            img.setAttribute('id', 'image');
-        };
+        // upload_img.onchange = function (e) {
+        //     e.preventDefault();
+        //
+        //     var file = this.files[0];
+        //     var url = URL.createObjectURL(file);
+        //     var img = new Image(640, 480);
+        //
+        //     document.getElementById('img-preview').setAttribute('src', url);
+        //     img.src = url;
+        //     img.setAttribute('crossOrigin', 'anonymous');
+        //     img.setAttribute('id', 'image');
+        // };
 
     navigator.getMedia = ( navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
@@ -73,8 +73,8 @@
         resetbutton.style.display="block";
         savebutton.style.display="block";
         startbutton.style.display="none";
-        uploadbutton.style.display="none";
-        upload_form.style.display="none";
+        // uploadbutton.style.display="none";
+        // upload_form.style.display="none";
     }
 
     startbutton.addEventListener('click', function(ev){
@@ -90,8 +90,8 @@
         resetbutton.style.display="none";
         savebutton.style.display="none";
         startbutton.style.display="block";
-        uploadbutton.style.display="block";
-        upload_form.style.display="block";
+        // uploadbutton.style.display="block";
+        // upload_form.style.display="block";
     });
 
     var nbr_cadres = 3;

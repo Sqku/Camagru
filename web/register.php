@@ -107,6 +107,7 @@ else
 
         echo'<h1>Inscription terminée</h1>';
         echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit</p>
+        <p>Un email de confirmation vous a été envoyé a votre adresse email</p>
     	<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
 
         $email = $_POST['email'];
