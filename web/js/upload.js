@@ -1,25 +1,56 @@
-$(function() {
-    $('#file input[type="file"]').change(function() {
-        $("#preview").each(function(e){
-            this.remove();
-        });
-        var file = $(this);
-        var reader = new FileReader;
-        reader.onload = function(event) {
-            var img = new Image();
-            img.onload = function() {
-                var width = 140;
-                var height = 90
-                var canvas = $('<canvas id="preview"></canvas>').attr({ width: width, height: height });
-                file.after(canvas);
-                var context = canvas[0].getContext('2d');
-                context.drawImage(img, 0, 0, width, height);
-            };
-            img.src = event.target.result;
-        };
-        reader.readAsDataURL(file[0].files[0]);
-    });
+// var loadFile = function(event) {
+//     var reader = new FileReader();
+//     reader.onload = function(){
+//         var output = document.getElementById('output');
+//         output.src = reader.result;
+//     };
+//     reader.readAsDataURL(event.target.files[0]);
+// };
+
+uploadbutton = document.querySelector('#uploadbutton'),
+upload_form = document.querySelector('#upload_form'),
+upload_img = document.querySelector('#upload_img'),
+
+// upload_img.onchange = function (e) {
+//     e.preventDefault();
+//
+//     var file = this.files[0];
+//     var url = URL.createObjectURL(file);
+//     var img = new Image(640, 480);
+//
+//     document.getElementById('img-preview').setAttribute('src', url);
+//     img.src = url;
+//     img.setAttribute('crossOrigin', 'anonymous');
+//     img.setAttribute('id', 'image');
+// };
+
+upload_img.addEventListener('click', function(ev){
+
+    upload_img.onchange = function (e) {
+        // e.preventDefault();
+
+        var file = this.files[0];
+        var url = URL.createObjectURL(file);
+        var img = new Image(640, 480);
+
+        document.getElementById('img-preview').setAttribute('src', url);
+        img.src = url;
+        img.setAttribute('crossOrigin', 'anonymous');
+        img.setAttribute('id', 'image');
+    };
+    // ev.preventDefault();
+    // canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    // photo.setAttribute("src", ' ');
+    // b64_img.setAttribute("value", '');
+    // resetbutton.style.display="none";
+    // savebutton.style.display="none";
+    // startbutton.style.display="block";
+    uploadbutton.style.display="block";
+    // upload_form.style.display="block";
+
+
 });
+
 
     var nbr_cadres = 3;
     var i;
@@ -28,11 +59,10 @@ $(function() {
         document.getElementById('cadre_' + i).addEventListener('click', function () {
             // this.style.border = '1px solid red';
             document.getElementById('apercu').setAttribute('src', this.src);
-            document.getElementById('id_cadre').setAttribute('value', this.alt);
             document.getElementById('id_cadre2').setAttribute('value', this.alt);
             console.log('cadre_' + this.alt + ' Clicked');
-            savebutton.disabled = false;
+            uploadbutton.disabled = false;
         });
     }
 
-})();
+

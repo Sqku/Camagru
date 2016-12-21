@@ -96,13 +96,12 @@
 
     var nbr_cadres = 3;
     var i;
-    for (i = 1; i <= 3; i++)
-    {
+    for (i = 1; i <= 3; i++) {
         document.getElementById('cadre_' + i).addEventListener('click', function () {
             // this.style.border = '1px solid red';
             document.getElementById('apercu').setAttribute('src', this.src);
             document.getElementById('id_cadre').setAttribute('value', this.alt);
-            document.getElementById('id_cadre2').setAttribute('value', this.alt);
+            // document.getElementById('id_cadre2').setAttribute('value', this.alt);
             console.log('cadre_' + this.alt + ' Clicked');
             savebutton.disabled = false;
         });

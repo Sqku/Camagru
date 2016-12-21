@@ -40,13 +40,13 @@ include("menu.php");
     <button id="startbutton">Prendre une photo</button>
     <button id="resetbutton" style="display:none">Recommencer</button>
 
-
-    <form method="post" action="save.php">
-        <input type="hidden" value="" name="b64_img" id="b64_img">
-        <input type="hidden" value="" name="id_cadre" id="id_cadre">
-        <button type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
-    </form>
-
+    <div>
+        <form method="post" action="save.php">
+            <input type="hidden" value="" name="b64_img" id="b64_img">
+            <input type="hidden" value="" name="id_cadre" id="id_cadre">
+            <button type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
+        </form>
+    </div>
 
 
     <img src="" id="photo" alt="photo" style="display: none">
@@ -109,7 +109,6 @@ if($data)
             echo ' <a href="galerie.php?page=' . $i . '">' . $i . '</a> ';
     }
     echo '</p>';
-    include("footer.php");
 }
 else
 {
