@@ -2,6 +2,7 @@
     <!DOCTYPE html>
     <meta charset="utf-8" />
     <link rel="stylesheet" media="screen" type="text/css" title="style" href="style.css"/>
+    <link rel="stylesheet" media="screen" type="text/css" title="style" href="/css/fontello.css"/>
     <title>Camagru</title>
     <?php
         $lvl=(isset($_SESSION['level']))?(int) $_SESSION['level']:3;

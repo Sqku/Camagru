@@ -26,8 +26,10 @@ if (!isset($_POST['pseudo']))
 	<label for="pseudo">Pseudo :</label><input name="pseudo" type="text" id="pseudo" /><br />
 	<label for="password">Mot de Passe :</label><input type="password" name="password" id="password" />
 	</p>
+	<p><input type="submit" value="Connexion" /></p>
 	</fieldset>
-	<p><input type="submit" value="Connexion" /></p></form>
+	<p><input type="submit" value="Connexion" /></p>
+	</form>
 	<a href="register.php">Pas encore inscrit ?</a></br>
 	<a href="new_pass.php">Mot de passe oublie</a>
 	 
@@ -90,13 +92,8 @@ else
 
 ?>
 
-<input type="hidden" name="page" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
-</br>
 
 <?php
-$page = htmlspecialchars($_POST['page']);
-echo 'Cliquez <a href="'.$page.'">ici</a> pour revenir à la page précédente';
-
 include("footer.php");
 ?>
 

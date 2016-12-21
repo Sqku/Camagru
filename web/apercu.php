@@ -71,12 +71,12 @@ else
             <form action="like.php" method="post">
                 <input type="hidden" name="id" value="<?=$id?>" >
                 <input type="hidden" name="vote" value="1" >
-                <button type="submit" class="vote_btn vote_like"><?= $data3['like_count'] ?></button>
+                <button type="submit" class="vote_btn vote_like"><i class="icon-thumbs-up-alt"></i><?= $data3['like_count'] ?></button>
             </form>
             <form action="like.php" method="post">
                 <input type="hidden" name="id" value="<?=$id?>" >
                 <input type="hidden" name="vote" value="-1" >
-                <button type="submit" class="vote_btn vote_dislike"><?= $data3['dislike_count'] ?></button>
+                <button type="submit" class="vote_btn vote_dislike"><i class="icon-thumbs-down-alt"></i><?= $data3['dislike_count'] ?></button>
             </form>
         </div>
     </div>

@@ -44,4 +44,5 @@ include("menu.php");
     <script src="js/upload.js" type="text/javascript"></script>
 
 <?php
+include("footer.php");
 ?>
