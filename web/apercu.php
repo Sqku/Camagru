@@ -124,8 +124,7 @@ else
         </div>
     <?php endforeach;
 }
-include("footer.php");
-
+    include("fin.php");
 ?>
 
 

@@ -33,11 +33,12 @@ include("menu.php");
     </div>
 
     <div>
-        <form id="upload_form" action="upload.php" method="post" enctype="multipart/form-data">
+        <form id="upload_form" action="upload.php" method="POST" enctype="multipart/form-data">
             Uploader une image :
-            <input type="file" name="fileToUpload" id="upload_img" accept="image/*" onchange="loadFile(event)">
+            <input type="file" value="" src "" name="fileToUpload" id="upload_img" accept="image/*">
             <img id="output"/>
             <input type="hidden" value="" name="id_cadre" id="id_cadre2">
+            <input type="hidden" value="" name="b64_img" id="b64_img">
             <input type="submit" value="Upload Image" id="uploadbutton" name="submit" style="display: none" disabled>
         </form>
     </div>
@@ -45,4 +46,5 @@ include("menu.php");
 
 <?php
 include("footer.php");
+include("fin.php");
 ?>

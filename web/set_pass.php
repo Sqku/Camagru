@@ -70,4 +70,5 @@ else
 $query->CloseCursor();
 
 include("footer.php");
+include("fin.php");
 ?>

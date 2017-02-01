@@ -71,4 +71,5 @@ else
 }
 
 include("footer.php");
+include("fin.php");
 ?>

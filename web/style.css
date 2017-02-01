@@ -1,60 +1,41 @@
+/*RESET CSS*/
+/*html, body, div, span, applet, object, iframe,*/
+/*h1, h2, h3, h4, h5, h6, p, blockquote, pre,*/
+/*a, abbr, acronym, address, big, cite, code,*/
+/*del, dfn, em, img, ins, kbd, q, s, samp,*/
+/*small, strike, strong, sub, sup, tt, var,*/
+/*b, u, i, center,*/
+/*dl, dt, dd, ol, ul, li,*/
+/*fieldset, form, label, legend,*/
+/*table, caption, tbody, tfoot, thead, tr, th, td,*/
+/*article, aside, canvas, details, embed,*/
+/*figure, figcaption, footer, header, hgroup,*/
+/*menu, nav, output, ruby, section, summary,*/
+/*time, mark, audio, video {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+    /*font-size: 100%;*/
+    /*font: inherit;*/
+    /*vertical-align: baseline;*/
+/*}*/
+
+#bienvenue
+{
+    text-align: center;
+    /*margin-top: 10%;*/
+}
+
 #footer
 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
     text-align: center;
     border: 1px solid black;
-    width: 90%;
-    margin-top: 50px;
-    margin-left: 5%;
-    margin-bottom: 10Opx;
-    padding: 5px;
+    margin-bottom: 20px;
     background-color: rgb(237,224,213);
 }
-
-#header
-{
-    text-align: center;
-    border: 1px solid black;
-    width: 90%;
-    margin-top: 50px;
-    margin-left: 5%;
-    margin-bottom: 10Opx;
-    padding: 5px;
-    background-color: rgb(237,224,213);
-}
-
-ul#menu
-{
-    height: 30px ;
-    margin: 50 ;
-    padding: 0 ;
-    background-color: #E1CE9A;
-    list-style-type: none ;
-}
-
-ul#menu li
-{
-    float: left ;
-    text-align: center ;
-}
-
-ul#menu li a
-{
-    width: 130px ;
-    line-height: 25px ;
-    font-size: 1.2em ;
-    font-weight: bold ;
-    letter-spacing: 2px ;
-    color: #2D241E ;
-    display: block ;
-    text-decoration: none ;
-    border-right: 2px solid #dea ;
-}
-
-ul#menu li a:hover
-{
-    background-color: #BEF574;
-}
-
 
 
 label {
@@ -63,19 +44,11 @@ label {
     float:left;
 }
 
-#menu_cadre li
-{
-    list-style-type: none ;
-    float: left ;
-    text-align: center ;
-}
-
 .cadre
 {
     max-height: 100px;
     width: auto;
 }
-
 
 .min{
     background:#FFFFFF url(fondbloc.jpg) top left no-repeat;
@@ -119,14 +92,15 @@ label {
     display:none;
 }
 
+
+form{
+    display: inline-block;
+}
 .vote{
     width: 150px;
     margin: 50px 0;
     /*float: right;*/
     /*display: block;*/
-    form{
-        display: inline-block;
-    }
 }
 
 .vote_bar{

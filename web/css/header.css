@@ -1,0 +1,118 @@
+html, body {
+  font-size: 16px;
+  line-height: 1.4;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.content {
+  padding-top: 66px; }
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+  color: #FFFFFF;
+  background-color: #0277bd; }
+
+.logo {
+  font-weight: bold;
+  padding: 0 25px;
+  float: left; }
+
+.menu {
+  float: left; }
+  .menu a {
+    padding: 0 10px; }
+  .menu a:hover {
+    color: #ffca28; }
+
+/* Menu Responsive */
+@media only screen and (max-width: 992px) {
+  .site-container, .site-pusher {
+    height: 100%; }
+
+  .site-container {
+    overflow: hidden; }
+
+  .site-pusher {
+    height: 100%;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px); }
+
+  .content {
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 0px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; }
+
+  .header {
+    position: static; }
+
+  .menu_icon {
+    position: relative;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 66px;
+    cursor: pointer; }
+    .menu_icon:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      height: 0px;
+      top: 16px;
+      left: 15px;
+      -moz-box-shadow: 0 10px 0 1px, 0 16px 0 1px, 0 22px 0 1px;
+      -webkit-box-shadow: 0 10px 0 1px, 0 16px 0 1px, 0 22px 0 1px;
+      box-shadow: 0 10px 0 1px, 0 16px 0 1px, 0 22px 0 1px; }
+
+  .menu {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #02619a;
+    width: 250px;
+    -moz-transform: translateX(-250px);
+    -ms-transform: translateX(-250px);
+    -webkit-transform: translateX(-250px);
+    transform: translateX(-250px); }
+    .menu a {
+      display: block;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-bottom: 2px solid #0277bd; }
+
+  .sidebar .site-pusher {
+    -moz-transform: translateX(250px);
+    -ms-transform: translateX(250px);
+    -webkit-transform: translateX(250px);
+    transform: translateX(250px); }
+  .sidebar .site_cache {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.6); } }
+
+/*# sourceMappingURL=header.css.map */

@@ -94,7 +94,7 @@ else
 
 
 <?php
-include("footer.php");
+include("fin.php");
 ?>
 
 

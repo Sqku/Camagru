@@ -50,4 +50,5 @@ $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
 echo $message;
 
 include("footer.php");
+include("fin.php");
 ?>

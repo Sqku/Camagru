@@ -1,0 +1,134 @@
+@import "compass";
+
+html, body{
+  font-size: 16px;
+  line-height: 1.4;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.content{
+  padding-top: 66px;
+}
+
+.header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+
+  line-height: 66px;
+  color: #FFFFFF;
+
+  background-color: #0277bd;
+}
+
+.logo{
+  font-weight: bold;
+  padding: 0 25px;
+  float: left;
+}
+
+.menu{
+  float: left;
+  a{
+    padding:0 10px;
+  }
+  a:hover{
+    color: #ffca28;
+  }
+}
+
+/* Menu Responsive */
+
+$menu_width: 250px;
+
+@media only screen and (max-width: 992px){
+  .site-container, .site-pusher{
+    height: 100%;
+  }
+
+  .site-container{
+    overflow: hidden;
+  }
+  
+  .site-pusher{
+    height: 100%;
+    @include transition-duration(0.3s);
+    @include transform(translateX(0px));
+  }
+
+  .content{
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 0px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .header{
+    position: static;
+  }
+  .menu_icon {
+    position: relative;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 66px;
+
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 16px;
+      height: 0px;
+      top: 16px;
+      left: 15px;
+      @include box-shadow(0 10px 0 1px, 0 16px 0 1px, 0 22px 0 1px);
+    }
+  }
+  .menu{
+      position:absolute;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      background-color: darken(#0277bd, 7);
+      width: $menu_width;
+
+      @include transform(translateX(-250px));
+
+      a{
+        display: block;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-bottom: 2px solid #0277bd;
+      }
+  }
+
+  .sidebar{
+    .site-pusher{
+      @include transform(translateX(250px));
+    }
+    .site_cache{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      left: 0px;
+      bottom: 0px;
+      background-color: rgba(0,0,0,0.6);
+    }
+  }
+
+}

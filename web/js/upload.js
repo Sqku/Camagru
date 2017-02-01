@@ -7,9 +7,10 @@
 //     reader.readAsDataURL(event.target.files[0]);
 // };
 
-uploadbutton = document.querySelector('#uploadbutton'),
-upload_form = document.querySelector('#upload_form'),
-upload_img = document.querySelector('#upload_img'),
+uploadbutton = document.querySelector('#uploadbutton');
+upload_form = document.querySelector('#upload_form');
+upload_img = document.querySelector('#upload_img');
+b64_img = document.querySelector('#b64_img');
 
 // upload_img.onchange = function (e) {
 //     e.preventDefault();
@@ -34,6 +35,7 @@ upload_img.addEventListener('click', function(ev){
         var img = new Image(640, 480);
 
         document.getElementById('img-preview').setAttribute('src', url);
+        b64_img.setAttribute("value", img);
         img.src = url;
         img.setAttribute('crossOrigin', 'anonymous');
         img.setAttribute('id', 'image');

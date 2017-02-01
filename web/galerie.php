@@ -76,10 +76,11 @@ if($data)
 else
 {
     include("footer.php");
+    include("fin.php");
     die();
 }
 
-
+include("fin.php");
 
 ?>
 

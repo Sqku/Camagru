@@ -1,4 +1,9 @@
-*{box-sizing: border-box;}
+@import "compass";
+
+
+*{
+  @include box-sizing(border-box);
+}
 
 body{
   margin:0;
@@ -6,17 +11,13 @@ body{
 }
 
 
-/*------------------------------------*\
-    $Variables
-\*------------------------------------*/
+/* Variables */
 $columns: 12!default;
 $gutter: 20px!default;
 $medium: 992px!default;
 $large: 1200px!default;
 
-/*------------------------------------*\
-    $Mixins
-\*------------------------------------*/
+
 @mixin responsive-columns($suffix: ''){
   @for $i from 0 through $columns{
     @if $i != 0 {
@@ -30,9 +31,6 @@ $large: 1200px!default;
   }
 }
 
-/*------------------------------------*\
-    $Extends
-\*------------------------------------*/
 %col{
   float: left;
   position: relative;
@@ -42,31 +40,27 @@ $large: 1200px!default;
   border: 1px solid rgba(#000, 0.5);
 }
 
-%clearfix{
-  &:before,
-  &:after{
-    content: "";
-    display:table;
-  }
-  &after{
-    clear:both;
-  }
-  &{
-    zoom:1;
-  }
-}
+//%clearfix{
+//  &:before,
+//  &:after{
+//    content: "";
+//    display:table;
+//  }
+//  &after{
+//    clear:both;
+//  }
+//  &{
+//    zoom:1;
+//  }
+//}
 
-/*------------------------------------*\
-    $Class
-\*------------------------------------*/
 .row{
   margin:0 $gutter * -0.5;
-  @extend %clearfix;
+  @include clearfix;
+  //@extend %clearfix;
 }
 
-/*------------------------------------*\
-    $Grid
-\*------------------------------------*/
+/* Small Screen */
 @for $i from 1 through $columns{
   .col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}{ @extend %col; }
 }
@@ -74,9 +68,7 @@ $large: 1200px!default;
 .l-show{ display: none; }
 @include responsive-columns('-s');
 
-/*------------------------------------*\
-    $RESPONSIVE
-\*------------------------------------*/
+
 /* Medium Screen */
 @media only screen and (min-width: $medium) {
   @include responsive-columns('-m');

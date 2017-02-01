@@ -53,4 +53,5 @@ else
     die();
 }
 
+include("fin.php");
 ?>

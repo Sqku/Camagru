@@ -21,7 +21,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
 
-    if ($_POST['upload_img'])
+    if (isset($_POST['b64_img']))
     {
 
         $errors = array();
@@ -87,6 +87,7 @@ else
     echo "Une erreur est survenue";
     $message = '<p>Cliquez <a href="./upload_image.php">ici</a> pour revenir à la page upload';
     echo $message;
+    var_dump($_POST);
     die();
 }
 
