@@ -1,16 +1,26 @@
 <?php
 include("db_start.php");
 include("debut.php");
-include("header.php");
-include("menu.php");
+?>
 
-$pseudo = $_POST['pseudo'];
-$email = $_POST['email'];
+<body>
+<div class="site-container">
+    <div class="site-pusher">
+        <?php
+        include("header.php");
+        ?>
+        <div class="content">
+            <div class="row">
+                <div class="col-s-12 col-m-10 col-m-push-1 col-l-10 col-l-push-1" id="bienvenue">
+                    <?php
+
+                    $pseudo = $_POST['pseudo'];
+                    $email = $_POST['email'];
 
 
-if (!isset($_POST['pseudo']))
-{
-    echo '<form method="post" action="new_pass.php">
+                    if (!isset($_POST['pseudo']))
+                    {
+                        echo '<form method="post" action="new_pass.php">
 	<fieldset>
 	<legend>Mot de passe oublie</legend>
 	<p>
@@ -23,29 +33,29 @@ if (!isset($_POST['pseudo']))
 	</div>
 	</body>
 	</html>';
-}
+                    }
 
-else
-{
-    $query = $db->prepare("SELECT * FROM users WHERE user_name = ? AND email = ? AND actif = ?");
-    $query->execute(array($pseudo, $email, 1));
-    $data = $query->fetch();
+                    else
+                    {
+                        $query = $db->prepare("SELECT * FROM users WHERE user_name = ? AND email = ? AND actif = ?");
+                        $query->execute(array($pseudo, $email, 1));
+                        $data = $query->fetch();
 
-    $query->CloseCursor();
+                        $query->CloseCursor();
 
-    if($data)
-    {
-        $cle = sha1(microtime(TRUE)*100000);
+                        if($data)
+                        {
+                            $cle = sha1(microtime(TRUE)*100000);
 
-        $query = $db->prepare("UPDATE users SET cle = ? WHERE id = {$data['id']}");
-        $query->execute(array($cle));
+                            $query = $db->prepare("UPDATE users SET cle = ? WHERE id = {$data['id']}");
+                            $query->execute(array($cle));
 
-        $mail = $data['email'];
+                            $mail = $data['email'];
 
 
-        $sujet = "Reinitialiser le mot de passe" ;
-        $entete = "From: camagru" ;
-        $message = 'Bonjour,
+                            $sujet = "Reinitialiser le mot de passe" ;
+                            $entete = "From: camagru" ;
+                            $message = 'Bonjour,
  
         Pour reinitialiser le mot de passe, veuillez cliquer sur le lien ci dessous
         ou copier/coller dans votre navigateur internet.
@@ -57,19 +67,33 @@ else
         Ceci est un mail automatique, Merci de ne pas y répondre.';
 
 
-        mail($mail, $sujet, $message, $entete);
+                            mail($mail, $sujet, $message, $entete);
 
-        echo'<h1>Les instructions de reinitialisation de mot de passe vous ont été envoyées par email</h1>';
-        echo'<p>Cliquez <a href="./connexion.php">ici</a> pour revenir à la page de connexion</p>';
+                            echo'<h1>Les instructions de reinitialisation de mot de passe vous ont été envoyées par email</h1>';
+                            echo'<p>Cliquez <a href="./connexion.php">ici</a> pour revenir à la page de connexion</p>';
 
-    }
-    else
-    {
-        echo'<p>le pseudo et/ou l\'email sont incorrect</p>';
-        echo'<p>Cliquez <a href="./new_pass.php">ici</a> pour recommencer</p>';
-    }
-}
+                        }
+                        else
+                        {
+                            echo'<p>le pseudo et/ou l\'email sont incorrect</p>';
+                            echo'<p>Cliquez <a href="./new_pass.php">ici</a> pour recommencer</p>';
+                        }
+                    }
 
-include("footer.php");
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="site_cache" id="site_cache"></div>
+        <?php
+        include("footer.php");
+        ?>
+    </div>
+</div>
+<script type="text/javascript" src="js/menu.js"></script>
+</body>
+
+
+<?php
 include("fin.php");
 ?>

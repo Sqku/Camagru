@@ -1,8 +1,5 @@
 <?php
     include("db_start.php");
-?>
-
-<?php
     include("debut.php");
 ?>
 
@@ -11,7 +8,6 @@
         <div class="site-pusher">
             <?php
                 include("header.php");
-                //include("menu.php");
             ?>
             <div class="content">
                 <div class="row">

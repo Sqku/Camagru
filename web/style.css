@@ -44,6 +44,11 @@ label {
     float:left;
 }
 
+#menu_cadre li{
+    float: left;
+    list-style-type: none;
+}
+
 .cadre
 {
     max-height: 100px;
