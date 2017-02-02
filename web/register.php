@@ -1,18 +1,29 @@
 <?php
-
 include("db_start.php");
 include("debut.php");
-include("header.php");
-include("menu.php");
-
-if ($id!=0) erreur(ERR_IS_CO);
 ?>
 
-<?php
-if (empty($_POST['pseudo']))
-{
-    echo '<h1>Inscription 1/2</h1>';
-    echo '<form method="post" action="register.php" enctype="multipart/form-data">
+<body>
+<div class="site-container">
+    <div class="site-pusher">
+        <?php
+        include("header.php");
+        ?>
+        <div class="content">
+            <div class="row">
+                <div class="col-s-12 col-m-10 col-m-push-1 col-l-10 col-l-push-1" id="bienvenue">
+                    <?php
+                    if ($id!=0)
+                    {
+                        echo 'Vous êtes déjà inscrit et connecté';
+                        echo '<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
+                        die();
+                    }
+
+                    if (empty($_POST['pseudo']))
+                    {
+                        echo '<h1>Inscription 1/2</h1>';
+                        echo '<form method="post" action="register.php" enctype="multipart/form-data">
     <fieldset><legend>Identifiants</legend>
     <label for="pseudo">* Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" /> (le pseudo doit contenir entre 3 et 15 caractères)<br />
     <label for="password">* Mot de Passe :</label><input type="password" name="password" id="password" /><br />
@@ -27,95 +38,95 @@ if (empty($_POST['pseudo']))
     </body>
     </html>';
 
-}
+                    }
 
 
-else
-{
-    $pseudo_erreur1 = NULL;
-    $pseudo_erreur2 = NULL;
-    $mdp_erreur = NULL;
-    $email_erreur1 = NULL;
-    $email_erreur2 = NULL;
+                    else
+                    {
+                        $pseudo_erreur1 = NULL;
+                        $pseudo_erreur2 = NULL;
+                        $mdp_erreur = NULL;
+                        $email_erreur1 = NULL;
+                        $email_erreur2 = NULL;
 
-    $i = 0;
-    $pseudo = $_POST['pseudo'];
-    $email = $_POST['email'];
-    $pass = sha1($_POST['password']);
-    $confirm = sha1($_POST['confirm']);
+                        $i = 0;
+                        $pseudo = $_POST['pseudo'];
+                        $email = $_POST['email'];
+                        $pass = sha1($_POST['password']);
+                        $confirm = sha1($_POST['confirm']);
 
-    $query=$db->prepare('SELECT COUNT(*) AS nbr FROM users WHERE user_name = :pseudo');
-    $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-    $query->execute();
-    $pseudo_free=($query->fetchColumn()==0)?1:0;
-    $query->CloseCursor();
-    if(!$pseudo_free)
-    {
-        $pseudo_erreur1 = "Votre pseudo est déjà utilisé par un membre";
-        $i++;
-    }
+                        $query=$db->prepare('SELECT COUNT(*) AS nbr FROM users WHERE user_name = :pseudo');
+                        $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+                        $query->execute();
+                        $pseudo_free=($query->fetchColumn()==0)?1:0;
+                        $query->CloseCursor();
+                        if(!$pseudo_free)
+                        {
+                            $pseudo_erreur1 = "Votre pseudo est déjà utilisé par un membre";
+                            $i++;
+                        }
 
-    if (strlen($pseudo) < 3 || strlen($pseudo) > 15)
-    {
-        $pseudo_erreur2 = "Votre pseudo est soit trop grand, soit trop petit";
-        $i++;
-    }
+                        if (strlen($pseudo) < 3 || strlen($pseudo) > 15)
+                        {
+                            $pseudo_erreur2 = "Votre pseudo est soit trop grand, soit trop petit";
+                            $i++;
+                        }
 
-    if ($pass != $confirm || empty($confirm) || empty($pass))
-    {
-        $mdp_erreur = "Votre mot de passe et votre confirmation diffèrent, ou sont vides";
-        $i++;
-    }
+                        if ($pass != $confirm || empty($confirm) || empty($pass))
+                        {
+                            $mdp_erreur = "Votre mot de passe et votre confirmation diffèrent, ou sont vides";
+                            $i++;
+                        }
 
 
-    $query=$db->prepare('SELECT COUNT(*) AS nbr FROM users WHERE email = :mail');
-    $query->bindValue(':mail', $email, PDO::PARAM_STR);
-    $query->execute();
-    $mail_free=($query->fetchColumn()==0)?1:0;
-    $query->CloseCursor();
+                        $query=$db->prepare('SELECT COUNT(*) AS nbr FROM users WHERE email = :mail');
+                        $query->bindValue(':mail', $email, PDO::PARAM_STR);
+                        $query->execute();
+                        $mail_free=($query->fetchColumn()==0)?1:0;
+                        $query->CloseCursor();
 
-    if(!$mail_free)
-    {
-        $email_erreur1 = "Votre adresse email est déjà utilisée par un membre";
-        $i++;
-    }
+                        if(!$mail_free)
+                        {
+                            $email_erreur1 = "Votre adresse email est déjà utilisée par un membre";
+                            $i++;
+                        }
 
-    if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $email) || empty($email))
-    {
-        $email_erreur2 = "Votre adresse E-Mail n'a pas un format valide";
-        $i++;
-    }
+                        if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $email) || empty($email))
+                        {
+                            $email_erreur2 = "Votre adresse E-Mail n'a pas un format valide";
+                            $i++;
+                        }
 
-    if ($i==0)
-    {
-        $cle = sha1(microtime(TRUE)*100000);
+                        if ($i==0)
+                        {
+                            $cle = sha1(microtime(TRUE)*100000);
 
-        try {
-            $query=$db->prepare('INSERT INTO users (user_name, mdp, email, cle)
+                            try {
+                                $query=$db->prepare('INSERT INTO users (user_name, mdp, email, cle)
                 VALUES (:pseudo, :pass, :email, :cle)');
-            $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-            $query->bindValue(':pass', $pass, PDO::PARAM_INT);
-            $query->bindValue(':email', $email, PDO::PARAM_STR);
-            $query->bindValue(':cle', $cle, PDO::PARAM_STR);
-            $query->execute();
-        } catch (PDOException $e) {
-            echo 'Pdo error: '.$e->getMessage();
-            die();
-        }
+                                $query->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+                                $query->bindValue(':pass', $pass, PDO::PARAM_INT);
+                                $query->bindValue(':email', $email, PDO::PARAM_STR);
+                                $query->bindValue(':cle', $cle, PDO::PARAM_STR);
+                                $query->execute();
+                            } catch (PDOException $e) {
+                                echo 'Pdo error: '.$e->getMessage();
+                                die();
+                            }
 
-        $query->CloseCursor();
+                            $query->CloseCursor();
 
-        echo'<h1>Inscription terminée</h1>';
-        echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit</p>
+                            echo'<h1>Inscription 2/2 terminée</h1>';
+                            echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit</p>
         <p>Un email de confirmation vous a été envoyé a votre adresse email</p>
     	<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
 
-        $email = $_POST['email'];
+                            $email = $_POST['email'];
 
 
-        $sujet = "Activer votre compte" ;
-        $entete = "From: camagru" ;
-        $message = 'Bienvenue sur Camagru,
+                            $sujet = "Activer votre compte" ;
+                            $entete = "From: camagru" ;
+                            $message = 'Bienvenue sur Camagru,
  
         Pour activer votre compte, veuillez cliquer sur le lien ci dessous
         ou copier/coller dans votre navigateur internet.
@@ -127,28 +138,42 @@ else
         Ceci est un mail automatique, Merci de ne pas y répondre.';
 
 
-        mail($email, $sujet, $message, $entete);
+                            mail($email, $sujet, $message, $entete);
 
-        //$_SESSION['pseudo'] = $pseudo;
-        //$_SESSION['id'] = $db->lastInsertId();
-        //$_SESSION['level'] = 2;
-    }
-    else
-    {
-        echo'<h1>Inscription interrompue</h1>';
-        echo'<p>Une ou plusieurs erreurs se sont produites pendant l incription</p>';
-        echo'<p>'.$i.' erreur(s)</p>';
-        echo'<p>'.$pseudo_erreur1.'</p>';
-        echo'<p>'.$pseudo_erreur2.'</p>';
-        echo'<p>'.$mdp_erreur.'</p>';
-        echo'<p>'.$email_erreur1.'</p>';
-        echo'<p>'.$email_erreur2.'</p>';
+                            //$_SESSION['pseudo'] = $pseudo;
+                            //$_SESSION['id'] = $db->lastInsertId();
+                            //$_SESSION['level'] = 2;
+                        }
+                        else
+                        {
+                            echo'<h1>Inscription interrompue</h1>';
+                            echo'<p>Une ou plusieurs erreurs se sont produites pendant l incription</p>';
+                            echo'<p>'.$i.' erreur(s)</p>';
+                            echo'<p>'.$pseudo_erreur1.'</p>';
+                            echo'<p>'.$pseudo_erreur2.'</p>';
+                            echo'<p>'.$mdp_erreur.'</p>';
+                            echo'<p>'.$email_erreur1.'</p>';
+                            echo'<p>'.$email_erreur2.'</p>';
 
-        echo'<p>Cliquez <a href="./register.php">ici</a> pour recommencer</p>';
-    }
-}
+                            echo'<p>Cliquez <a href="./register.php">ici</a> pour recommencer</p>';
+                        }
+                    }
 
-include("footer.php");
 
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="site_cache" id="site_cache"></div>
+        <?php
+        include("footer.php");
+        ?>
+    </div>
+</div>
+<script type="text/javascript" src="js/menu.js"></script>
+</body>
+
+
+<?php
 include("fin.php");
 ?>
