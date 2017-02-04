@@ -9,11 +9,6 @@ html, body{
   padding: 0;
 }
 
-a{
-  text-decoration: none;
-  color: inherit;
-}
-
 .content{
   padding-top: 66px;
 }
@@ -28,6 +23,10 @@ a{
   color: #FFFFFF;
 
   background-color: #0277bd;
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .logo{

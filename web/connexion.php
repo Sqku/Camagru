@@ -16,6 +16,7 @@ include("debut.php");
                     $message = '<p>Cliquez <a href="./index.php">ici</a> pour aller à la page d\'accueil';
                     echo "Vous êtes déjà connecté";
                     echo stripslashes($message);
+                    include("footer.php");
                     die();
                 }
                 ?>
@@ -81,8 +82,9 @@ include("debut.php");
                                         <br /><br />Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
                         }
                         $query->CloseCursor();
+                        echo $message;
                     }
-                    echo $message;
+
                 }
                 ?>
             </div>

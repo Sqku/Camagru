@@ -19,10 +19,6 @@ include("debut.php");
                     }
                     else
                     {
-                        $pseudo = $_POST['pseudo'];
-                        $email = $_POST['email'];
-
-
                         if (!isset($_POST['pseudo'])) {
                             echo '<form method="post" action="new_pass.php">
 	<fieldset>
@@ -38,6 +34,8 @@ include("debut.php");
 	</body>
 	</html>';
                         } else {
+                            $pseudo = $_POST['pseudo'];
+                            $email = $_POST['email'];
                             $query = $db->prepare("SELECT * FROM users WHERE user_name = ? AND email = ? AND actif = ?");
                             $query->execute(array($pseudo, $email, 1));
                             $data = $query->fetch();

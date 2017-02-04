@@ -50,7 +50,7 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
         echo 'errors';
 }
 else
-    header('Location: connexion.php');
+    header('Location: index.php');
 ?>
 
 
