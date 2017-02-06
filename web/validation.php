@@ -41,13 +41,15 @@ include("debut.php");
                     {
                         if($cle == $clebd)
                         {
-                            echo "Votre compte a bien été activé !";
-
                             $cle = '';
                             $query = $db->prepare("UPDATE users SET actif = 1, cle = :cleVide WHERE user_name like :login ");
                             $query->bindParam(':cleVide', $cle);
                             $query->bindParam(':login', $login);
                             $query->execute();
+
+                            $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
+                            echo "Votre compte a bien été activé !";
+                            echo $message;
                         }
                         else
                         {
