@@ -124,7 +124,7 @@ include("debut.php");
                             $email = $_POST['email'];
 
 
-                            $sujet = "Activer votre compte" ;
+                            $sujet = "Activez votre compte" ;
                             $entete = "From: camagru" ;
                             $message = 'Bienvenue sur Camagru,
  

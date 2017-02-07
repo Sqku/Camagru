@@ -108,3 +108,8 @@
     }
 
 })();
+
+function resizeDiv() {
+    var rh=$('.camera_left').height()+'px'.toString();
+    $('.camera_right').css('height',rh);
+}

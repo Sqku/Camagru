@@ -75,12 +75,12 @@ include("debut.php");
                 echo '</p>';
                 include("footer.php");
             }
-            else
-            {
-                include("footer.php");
-                include("fin.php");
-                die();
-            }
+//            else
+//            {
+//                include("footer.php");
+//                include("fin.php");
+//                die();
+//            }
 
             ?>
         </div>

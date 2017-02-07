@@ -48,28 +48,30 @@ label {
 {
     /*text-align: center;*/
     /*width: 600px;*/
-    height: 250px;
-    margin: 20px auto;
+    /*top: 0;*/
+    /*bottom: 0;*/
+    height: auto;
+    margin: 5px auto;
     background: #ECECEC;
     border: 2px solid #0277bd;
-    overflow: auto;
+    overflow-y: auto;
     box-shadow: 0 0 10px #000;
     align-content: center;
 }
 
 #scroll ul {
-    float: left;
+    /*float: left;*/
     /*margin-right: -999em;*/
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     list-style: none;
     padding: 0;
 }
 
 #scroll li {
-    margin: 15px;
-    text-align: center;
-    float: left;
-    display: inline;
+    /*margin: 15px;*/
+    /*text-align: center;*/
+    /*float: left;*/
+    /*display: inline;*/
 }
 
 #scroll a {
@@ -79,34 +81,35 @@ label {
 }
 
 #scroll img {
+    border: 2px solid transparent;
     display: block;
-    border: 1px solid #A3CBE0;
-    max-width: 200px;
-    height: auto;
+    width: 100%;
+    /*height: auto;*/
 }
 
 #scroll img:hover {
-    border: 3px solid #FFFFFF;
+    border: 2px solid #000000;
 }
 
 
 @media only screen and (min-width: 1200px) {
     #scroll{
-        width: 600px;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
+        /*min-width: 600px;*/
+        /*min-height: 650px;*/
+        /*max-height: 1000px;*/
+        /*margin-left: auto;*/
+        /*margin-right: auto;*/
     }
 }
 
 
 #menu_cadre {
     height: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    margin: 20px auto;
     background: #ECECEC;
-    border: 2px solid #0277bd;
-    overflow-y: scroll;
+    /*border: 2px solid #0277bd;*/
+    overflow: auto;
     box-shadow: 0 0 10px #000;
     align-content: center;
 }
@@ -118,7 +121,7 @@ label {
 
 #menu_cadre ul {
     float: left;
-    /*margin-right: -999em;*/
+    margin-right: -999em;
     white-space: nowrap;
     list-style: none;
     padding: 0;
