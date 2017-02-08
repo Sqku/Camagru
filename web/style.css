@@ -20,28 +20,161 @@
     /*vertical-align: baseline;*/
 /*}*/
 
+.site-container{
+    min-height: 100%;
+    position: relative;
+    /*overflow: hidden;*/
+}
+
 #bienvenue
 {
     text-align: center;
     /*margin-top: 10%;*/
 }
 
-#footer
-{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    border: 1px solid black;
-    margin-bottom: 20px;
-    background-color: rgb(237,224,213);
+
+.upload_menu{
+    /*height: 200px;*/
+    /*margin-left: auto;*/
+    margin: 100px auto;
+    background: #ECECEC;
+    /*border: 2px solid #0277bd;*/
+    overflow: auto;
+    box-shadow: 0 0 10px #000;
+    align-content: center;
+    /*margin-bottom: 50px;*/
+    /*padding-bottom: 80px;*/
 }
 
+
+#footer
+{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    height: 66px;
+    background-color: #0277bd;
+
+}
+
+#footer p{
+    color: #FFFFFF;
+    /*line-height: 33px;*/
+}
+
+@media only screen and (max-width: 992px){
+    #footer{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        height: 66px;
+        background-color: #0277bd;
+    }
+}
+
+form{
+    display: inline-block;
+}
 
 label {
     display:block;
     width:150px;
     float:left;
+}
+
+/* BUTTON */
+
+.button a {
+    display:block;
+    /*width:150px;*/
+    /*line-height:50px;*/
+    /*text-align:center;*/
+    /*vertical-align:middle;*/
+    /*color:white;*/
+    text-decoration:none;
+}
+
+.button {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-radius: 20px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 16px 8px 8px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+@media only screen and (max-width: 500px){
+    .button {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 10;
+        -moz-border-radius: 10;
+        border-radius: 10px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 4px 8px 4px 4px;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+        cursor: pointer;
+
+    }
+}
+
+
+
+/* Galerie Camera */
+
+#camera_right{
+    /*position: relative;*/
+    display: flex;
+}
+
+#blank{
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*transform: translateY(-50%);*/
+    margin: auto;
+    background: #ECECEC;
+    text-align: center;
+    color: #02619a;
+    font-size: large;
 }
 
 #scroll
@@ -50,7 +183,7 @@ label {
     /*width: 600px;*/
     /*top: 0;*/
     /*bottom: 0;*/
-    height: auto;
+    /*height: auto;*/
     margin: 5px auto;
     background: #ECECEC;
     border: 2px solid #0277bd;
@@ -103,15 +236,19 @@ label {
 }
 
 
+
+/* Menu Cadre */
+
 #menu_cadre {
-    height: 200px;
+    height: 180px;
     /*margin-left: auto;*/
-    margin: 20px auto;
+    margin: 5px auto;
     background: #ECECEC;
     /*border: 2px solid #0277bd;*/
     overflow: auto;
     box-shadow: 0 0 10px #000;
     align-content: center;
+    /*margin-bottom: 50px;*/
 }
 
 #menu_cadre li{
@@ -128,7 +265,7 @@ label {
 }
 
 #menu_cadre li {
-    margin: 15px;
+    margin: 10px;
     text-align: center;
     float: left;
     display: inline;
@@ -149,14 +286,18 @@ label {
 
 #menu_cadre img:hover {
     border: 3px solid #FFFFFF;
+    cursor: pointer;
 }
 
 
 .cadre
 {
-    max-height: 110px;
+    max-height: 100px;
     width: auto;
 }
+
+
+/* Miniature */
 
 .min{
     background:#FFFFFF url(fondbloc.jpg) top left no-repeat;
@@ -201,9 +342,10 @@ label {
 }
 
 
-form{
-    display: inline-block;
-}
+
+
+/* Like */
+
 .vote{
     width: 150px;
     margin: 50px 0;

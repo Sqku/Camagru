@@ -73,7 +73,6 @@ include("debut.php");
                         echo ' <a href="galerie.php?page=' . $i . '">' . $i . '</a> ';
                 }
                 echo '</p>';
-                include("footer.php");
             }
 //            else
 //            {

@@ -29,7 +29,8 @@ include("debut.php");
                     $uploadOk = 1;
                     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                    if(isset($_POST["submit"]) && isset($_SESSION['pseudo'])) {
+                    if(isset($_POST["submit"]) && isset($_SESSION['pseudo']))
+                    {
 
                     if (isset($_POST['b64_img']))
                     {
@@ -82,7 +83,7 @@ include("debut.php");
                     imagedestroy($tmp_img);
                     //                        echo "salut";
                     //                        die();
-                    header('Location: camera.php');
+//                    header('Location: camera.php');
                     }
                     }
                     }
@@ -122,6 +123,7 @@ else
     </div>
 </div>
 <script type="text/javascript" src="js/menu.js"></script>
+<script type='text/javascript'>document.location.replace('upload_image.php');</script>
 </body>
 
 

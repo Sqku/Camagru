@@ -1,5 +1,4 @@
 (function() {
-
     var streaming = false,
         video = document.querySelector('#video'),
         cover = document.querySelector('#cover'),
@@ -94,9 +93,9 @@
         // upload_form.style.display="block";
     });
 
-    var nbr_cadres = 3;
+    var nbr_cadres = 5;
     var i;
-    for (i = 1; i <= 3; i++) {
+    for (i = 1; i <= 5; i++) {
         document.getElementById('cadre_' + i).addEventListener('click', function () {
             // this.style.border = '1px solid red';
             document.getElementById('apercu').setAttribute('src', this.src);
@@ -107,9 +106,12 @@
         });
     }
 
-})();
+    function resize_scroll_div() {
+        document.getElementById('camera_right').style.height = document.getElementById('camera_left').clientHeight;
+    }
 
-function resizeDiv() {
-    var rh=$('.camera_left').height()+'px'.toString();
-    $('.camera_right').css('height',rh);
-}
+    resize_scroll_div();
+
+    window.addEventListener('resize', resize_scroll_div);
+
+})();

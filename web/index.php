@@ -16,12 +16,15 @@
                     </div>
                 </div>
             </div>
-            <div class="site_cache" id="site_cache"></div>
             <?php
-                include("footer.php");
+            include("footer.php");
             ?>
+            <div class="site_cache" id="site_cache"></div>
         </div>
     </div>
+<!--    --><?php
+//    include("footer.php");
+//    ?>
     <script type="text/javascript" src="js/menu.js"></script>
 </body>
 
