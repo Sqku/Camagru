@@ -1,4 +1,4 @@
-ls<?php
+<?php
 include("db_start.php");
 include("debut.php");
 ?>
@@ -10,6 +10,16 @@ include("debut.php");
         include("header.php");
         ?>
         <div class="content">
+            <?php
+            if (!isset($_SESSION['id']) || empty($_SESSION['id']))
+            {
+            $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
+                erreur(ERR_IS_CO);
+                echo $message;
+                include("footer.php");
+                die();
+            }
+            ?>
             <div class="row">
                 <div class="col-s-12 col-m-10 col-m-push-1 col-l-10 col-l-push-1" id="bienvenue">
                     <?php
