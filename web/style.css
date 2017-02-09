@@ -20,6 +20,14 @@
     /*vertical-align: baseline;*/
 /*}*/
 
+/*a{*/
+    /*color: white;*/
+/*}*/
+
+a:visited{
+    color: white;
+}
+
 .site-container{
     min-height: 100%;
     position: relative;
@@ -88,7 +96,7 @@ label {
 /* BUTTON */
 
 .button a {
-    display:block;
+    /*display:block;*/
     /*width:150px;*/
     /*line-height:50px;*/
     /*text-align:center;*/
@@ -123,7 +131,22 @@ label {
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
     cursor: pointer;
+}
 
+button[disabled]:active, button[disabled],
+input[type="button"][disabled]:active,
+input[type="button"][disabled],
+input[type="submit"][disabled]:active,
+input[type="submit"][disabled] ,
+button[disabled]:hover,
+input[type="button"][disabled]:hover,
+input[type="submit"][disabled]:hover
+{
+    border: 2px outset ButtonFace;
+    color: GrayText;
+    cursor: inherit;
+    background-color: #ddd;
+    background: #ddd;
 }
 
 @media only screen and (max-width: 500px){

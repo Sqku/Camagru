@@ -25,15 +25,15 @@ include("debut.php");
                 <div>
                     <div class="col-s-12 col-m-8 col-l-6" id="camera_left">
                         <div style="position: relative; padding: 0;">
-<!--                            <video id="video" style="width: 100%; height: auto;"></video>-->
-<!--                            <canvas id="canvas" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: auto;"></canvas>-->
+                            <video id="video" style="width: 100%; height: auto;"></video>
+                            <canvas id="canvas" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: auto;"></canvas>
 <!--                            <img id="apercu" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 2; top: 0; left: 0;">-->
 
 
-                            <div class="col-s-8 col-m-8 col-l-6" style="width: 800px; height: 600px; position: relative; padding: 0;">
+<!--                            <div class="col-s-8 col-m-8 col-l-6" style=" position: relative; padding: 0;">-->
                                 <img id="apercu" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 2; top: 0; left: 0;">
                                 <img id="img-preview" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 1; top: 0; left: 0;">
-                            </div>
+<!--                            </div>-->
 
 
                         </div>
@@ -127,7 +127,7 @@ include("debut.php");
             </div>
 
 
-            <img src="" id="photo" alt="photo" style="display: none">
+<!--            <img src="" id="photo" alt="photo" style="display: none">-->
             <?php
             include("footer.php");
             ?>

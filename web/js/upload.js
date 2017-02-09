@@ -1,16 +1,58 @@
-// var loadFile = function(event) {
-//     var reader = new FileReader();
-//     reader.onload = function(){
-//         var output = document.getElementById('output');
-//         output.src = reader.result;
-//     };
-//     reader.readAsDataURL(event.target.files[0]);
-// };
+(function() {
+    var streaming = false,
+        video = document.querySelector('#video'),
+        canvas = document.querySelector('#canvas'),
+        b64_img = document.querySelector('#b64_img'),
+        width = 800,
+        height = 600;
+
+    navigator.getMedia = ( navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
+
+    navigator.getMedia(
+        {
+            video: true,
+            audio: false
+        },
+        function(stream) {
+            if (navigator.mozGetUserMedia) {
+                video.mozSrcObject = stream;
+            } else {
+                var vendorURL = window.URL || window.webkitURL;
+                video.src = vendorURL.createObjectURL(stream);
+            }
+            video.play();
+        },
+        function(err) {
+            console.log("An error occured! " + err);
+        }
+    );
+
+    video.addEventListener('canplay', function(ev){
+        if (!streaming) {
+            height = video.videoHeight / (video.videoWidth/width);
+            video.setAttribute('width', width);
+            video.setAttribute('height', height);
+            canvas.setAttribute('width', width);
+            canvas.setAttribute('height', height);
+            streaming = true;
+        }
+    }, false);
+
+
+})();
+
+
+
 
 uploadbutton = document.querySelector('#uploadbutton');
 upload_form = document.querySelector('#upload_form');
 upload_img = document.querySelector('#upload_img');
 b64_img = document.querySelector('#b64_img');
+width = 800;
+height = 600;
 
 // upload_img.onchange = function (e) {
 //     e.preventDefault();
@@ -24,6 +66,44 @@ b64_img = document.querySelector('#b64_img');
 //     img.setAttribute('crossOrigin', 'anonymous');
 //     img.setAttribute('id', 'image');
 // };
+
+
+// navigator.getMedia = ( navigator.getUserMedia ||
+// navigator.webkitGetUserMedia ||
+// navigator.mozGetUserMedia ||
+// navigator.msGetUserMedia);
+//
+// navigator.getMedia(
+//     {
+//         video: true,
+//         audio: false
+//     },
+//     function(stream) {
+//         if (navigator.mozGetUserMedia) {
+//             video.mozSrcObject = stream;
+//         } else {
+//             var vendorURL = window.URL || window.webkitURL;
+//             video.src = vendorURL.createObjectURL(stream);
+//         }
+//         video.play();
+//     },
+//     function(err) {
+//         console.log("An error occured! " + err);
+//     }
+// );
+//
+// video.addEventListener('canplay', function(ev){
+//     if (!streaming) {
+//         height = video.videoHeight / (video.videoWidth/width);
+//         video.setAttribute('width', width);
+//         video.setAttribute('height', height);
+//         canvas.setAttribute('width', width);
+//         canvas.setAttribute('height', height);
+//         streaming = true;
+//     }
+// }, false);
+
+
 
 upload_img.addEventListener('click', function(ev){
 

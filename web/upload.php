@@ -10,7 +10,7 @@ include("debut.php");
         include("header.php");
         ?>
         <div class="content">
-            <div class="row">
+            <div style="text-align: center">
                 <?php
                 if (!isset($_SESSION['id']) || empty($_SESSION['id']))
                 {
@@ -20,7 +20,7 @@ include("debut.php");
                     include("footer.php");
                     die();
 
-                    }
+                }
                     $MAX_UPLOAD_SIZE = 10485760;
 
 
@@ -32,8 +32,8 @@ include("debut.php");
                     if(isset($_POST["submit"]) && isset($_SESSION['pseudo']))
                     {
 
-                    if (isset($_POST['b64_img']))
-                    {
+//                    if (isset($_POST['b64_img']))
+//                    {
 
                     $errors = array();
 
@@ -92,13 +92,17 @@ include("debut.php");
 //            print_r($errors);
 //
 //    }
-}
+
+
+
+//                    }
+
+
 else
 {
     echo "Une erreur est survenue";
     $message = '<p>Cliquez <a href="./upload_image.php">ici</a> pour revenir à la page upload';
                     echo $message;
-                    var_dump($_POST);
                     die();
                     }
 

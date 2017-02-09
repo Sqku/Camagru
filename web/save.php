@@ -9,8 +9,25 @@ if (!empty($_POST) && isset($_SESSION['pseudo']))
         $errors['b64_img'] = true;
     if (empty($errors))
     {
-        $filter_root = $_SERVER['DOCUMENT_ROOT'].'/img/cadres/'.$_POST['id_cadre'].'.png';
-        $tmp_img = imagecreatefromstring(base64_decode(explode(',', $_POST['b64_img'])[1]));
+        if(!$_POST['id_cadre'])
+        {
+            header('Location: camera.php');
+        }
+        else
+        {
+            $filter_root = $_SERVER['DOCUMENT_ROOT'].'/img/cadres/'.$_POST['id_cadre'].'.png';
+
+        }
+        if(!$_POST['b64_img'])
+        {
+            header('Location: camera.php');
+
+        }
+        else
+        {
+            $tmp_img = imagecreatefromstring(base64_decode(explode(',', $_POST['b64_img'])[1]));
+
+        }
         $width = 800;
         $height = 600;
         list($filter_w, $filter_h) = getimagesize($filter_root);

@@ -1,10 +1,10 @@
 <?php
 include("db_start.php");
+include("debut.php");
 
 if (!isset($_SESSION['id']) || empty($_SESSION['id']))
 {
     $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
-    erreur(ERR_IS_CO);
     echo $message;
     include("footer.php");
     die();
@@ -20,8 +20,13 @@ if(!is_numeric($id))
     die();
 }
 
-if (!empty($_POST) && isset($_SESSION['pseudo']))
+if (isset($_POST) && isset($_SESSION['pseudo']))
 {
+    if(empty($_POST["commentaire"]))
+    {
+        header('Location:apercu.php?id='.$id);
+        die();
+    }
     $comment = $_POST["commentaire"];
     $userid = $_SESSION["id"];
 

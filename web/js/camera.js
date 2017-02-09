@@ -103,6 +103,8 @@
             // document.getElementById('id_cadre2').setAttribute('value', this.alt);
             console.log('cadre_' + this.alt + ' Clicked');
             savebutton.disabled = false;
+            // savebutton.style.="block";
+
         });
     }
 

@@ -26,7 +26,7 @@ include("debut.php");
                     <div class="col-s-12 col-m-8 col-l-6" id="camera_left">
                         <div style="position: relative; padding: 0;">
                             <video id="video" style="width: 100%; height: auto;"></video>
-                            <canvas id="canvas" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: auto;"></canvas>
+                            <canvas id="canvas" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: auto; overflow: auto;"></canvas>
                             <img id="apercu" src="" alt="" style="position: absolute; width: 100%; height: 100%; z-index: 2; top: 0; left: 0;">
                         </div>
                         <div class="col-s-12 col-m-12 col-l-12" style="margin-bottom: 70px">
@@ -55,6 +55,14 @@ include("debut.php");
                                         <input type="hidden" value="" name="id_cadre" id="id_cadre">
                                         <button class="button" type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
                                     </form>
+<!--                                    <form id="upload_form" action="upload.php" method="POST" enctype="multipart/form-data">-->
+<!--                                        Uploader une image :-->
+<!--                                        <input type="file" value="" src "" name="fileToUpload" id="upload_img" accept="image/*">-->
+<!--                                        <img id="output"/>-->
+<!--                                        <input type="hidden" value="" name="id_cadre" id="id_cadre2">-->
+<!--                                        <input type="hidden" value="" name="b64_img" id="b64_img">-->
+<!--                                        <input type="submit" value="Upload Image" id="uploadbutton" name="submit" style="display: none" disabled>-->
+<!--                                    </form>-->
                                 </div>
                             </div>
                         </div>
@@ -128,6 +136,8 @@ include("debut.php");
 </div>
 <script type="text/javascript" src="js/menu.js"></script>
 <script src="js/camera.js" type="text/javascript"></script>
+<!--<script src="js/upload.js" type="text/javascript"></script>-->
+
 </body>
 
 
