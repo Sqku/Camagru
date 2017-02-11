@@ -24,9 +24,9 @@ include("debut.php");
                 <div class="col-s-12 col-m-10 col-m-push-1 col-l-10 col-l-push-1" id="bienvenue">
                     <?php
                     session_unset();
-                    //session_destroy();
+                    session_destroy();
 
-                    if ($id==0)
+                    if(!isset($_SESSION['id']))
                     {
                     echo '<p>Vous êtes à présent déconnecté <br />
 

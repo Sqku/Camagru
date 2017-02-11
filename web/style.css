@@ -106,31 +106,37 @@ label {
 }
 
 .button {
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    -webkit-border-radius: 20;
-    -moz-border-radius: 20;
+    /*background: #3498db;*/
+    /*background-image: -webkit-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -moz-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -ms-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -o-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: linear-gradient(to bottom, #3498db, #2980b9);*/
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
     border-radius: 20px;
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
     font-family: Arial;
-    color: #ffffff;
-    font-size: 16px;
-    padding: 8px 16px 8px 8px;
+    font-size: 14px;
+    padding: 8px 18px;
     text-decoration: none;
+
+
 }
 
 .button:hover {
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
     cursor: pointer;
+
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
 }
 
 button[disabled]:active, button[disabled],
@@ -151,32 +157,44 @@ input[type="submit"][disabled]:hover
 
 @media only screen and (max-width: 500px){
     .button {
-        background: #3498db;
-        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-        background-image: -o-linear-gradient(top, #3498db, #2980b9);
-        background-image: linear-gradient(to bottom, #3498db, #2980b9);
-        -webkit-border-radius: 10;
-        -moz-border-radius: 10;
+        /*background: #3498db;*/
+        /*background-image: -webkit-linear-gradient(top, #3498db, #2980b9);*/
+        /*background-image: -moz-linear-gradient(top, #3498db, #2980b9);*/
+        /*background-image: -ms-linear-gradient(top, #3498db, #2980b9);*/
+        /*background-image: -o-linear-gradient(top, #3498db, #2980b9);*/
+        /*background-image: linear-gradient(to bottom, #3498db, #2980b9);*/
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
         border-radius: 10px;
+        /*font-family: Arial;*/
+        /*color: #ffffff;*/
+        /*font-size: 12px;*/
+        /*padding: 4px 8px 4px 4px;*/
+        /*text-decoration: none;*/
+
+        -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        box-shadow: inset 0px 1px 0px 0px #45D6D6;
+        background-color: #2CBBBB;
+        border: 1px solid #27A0A0;
+        display: inline-block;
+        cursor: pointer;
+        color: #FFFFFF;
         font-family: Arial;
-        color: #ffffff;
-        font-size: 12px;
-        padding: 4px 8px 4px 4px;
+        font-size: 14px;
+        padding: 4px 9px;
         text-decoration: none;
+
+
     }
 
     .button:hover {
-        background: #3cb0fd;
-        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
         text-decoration: none;
         cursor: pointer;
 
+
+        background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+        background-color:#34CACA;
     }
 }
 
@@ -421,3 +439,130 @@ input[type="submit"][disabled]:hover
 .vote_dislike:hover, .is-disliked .vote_dislike{
     color: red;
 }
+
+
+
+
+
+/* Formulaire */
+
+.form-style-8{
+    font-family: Arial;
+    width: 95%;
+    padding: 30px;
+    background: #FFFFFF;
+    /*margin-right: 10px;*/
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+
+
+
+.form-style-8 h2{
+    background: #2CBBBB;
+    /*text-transform: uppercase;*/
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    width: 350px;
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"]{
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+}
+.form-style-8 input[type="button"]:hover,
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 992px) {
+    .form-style-8{
+        width: 100%;
+    }
+}
+
+
+
+/*.form-style-8 input[type="button"],*/
+/*.form-style-8 input[type="submit"] {*/
+    /*background: #3498db;*/
+    /*background-image: -webkit-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -moz-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -ms-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: -o-linear-gradient(top, #3498db, #2980b9);*/
+    /*background-image: linear-gradient(to bottom, #3498db, #2980b9);*/
+    /*-webkit-border-radius: 20;*/
+    /*-moz-border-radius: 20;*/
+    /*border-radius: 20px;*/
+    /*font-family: Arial;*/
+    /*color: #ffffff;*/
+    /*font-size: 16px;*/
+    /*padding: 8px 16px 8px 8px;*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*.form-style-8 input[type="button"],*/
+/*.form-style-8 input[type="submit"] {*/
+    /*background: #3cb0fd;*/
+    /*background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);*/
+    /*background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);*/
+    /*background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);*/
+    /*background-image: -o-linear-gradient(top, #3cb0fd, #3498db);*/
+    /*background-image: linear-gradient(to bottom, #3cb0fd, #3498db);*/
+    /*text-decoration: none;*/
+    /*cursor: pointer;*/
+/*}*/

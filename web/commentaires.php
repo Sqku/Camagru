@@ -1,6 +1,7 @@
 <?php
 include("db_start.php");
-include("debut.php");
+include("functions.php");
+include("constants.php");
 
 if (!isset($_SESSION['id']) || empty($_SESSION['id']))
 {
