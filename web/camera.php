@@ -13,12 +13,17 @@ include("debut.php");
             <?php
             if (!isset($_SESSION['id']) || empty($_SESSION['id']))
             {
+                ?>
+                <div style="text-align: center;">
+                <?php
                 $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
                 erreur(ERR_IS_CO);
                 echo $message;
                 include("footer.php");
                 die();
-
+                ?>
+                </div>
+                    <?php
             }
             ?>
             <div class="row">

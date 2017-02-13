@@ -20,19 +20,22 @@ include("debut.php");
                     else
                     {
                         if (!isset($_POST['pseudo'])) {
-                            echo '<form method="post" action="new_pass.php">
-	<fieldset>
-	<legend>Mot de passe oublie</legend>
-	<p>
-	<label for="pseudo">Pseudo :</label><input name="pseudo" type="text" id="pseudo" /><br />
-	<label for="email">Votre adresse Mail :</label><input type="text" name="email" id="email" /><br />
-	</p>
-	</fieldset>
-	<p><input type="submit" value="Reinitialiser le mot de passe" /></p></form>
-	 
-	</div>
-	</body>
-	</html>';
+
+                            ?>
+                            <div class="form-style-8 " style="text-align: center; width:100%; margin: 15px 0 66px 0;">
+                                <h2>Mot de passe oublié</h2>
+                                <form method="post" action="new_pass.php">
+                                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" />
+                                    <input type="email" name="email" id="email" placeholder="E-mail" />
+                                    <input type="submit" value="Réinitialiser le mot de passe" />
+                                </form>
+                            </div>
+                            <?php
+
+
+
+
+
                         } else {
                             $pseudo = $_POST['pseudo'];
                             $email = $_POST['email'];
@@ -67,7 +70,7 @@ include("debut.php");
 
                                 mail($mail, $sujet, $message, $entete);
 
-                                echo '<h1>Les instructions de reinitialisation de mot de passe vous ont été envoyées par email</h1>';
+                                echo '<h2>Les instructions de reinitialisation de mot de passe vous ont été envoyées par email</h2>';
                                 echo '<p>Cliquez <a href="./connexion.php">ici</a> pour revenir à la page de connexion</p>';
 
                             } else {

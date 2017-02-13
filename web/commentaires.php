@@ -5,9 +5,7 @@ include("constants.php");
 
 if (!isset($_SESSION['id']) || empty($_SESSION['id']))
 {
-    $message = '<p>Cliquez <a href="./connexion.php">ici</a> pour vous connecter';
-    echo $message;
-    include("footer.php");
+    header('Location:connexion.php');
     die();
 }
 

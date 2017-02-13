@@ -11,7 +11,7 @@ include("debut.php");
         ?>
         <div class="content">
             <div class="row">
-                <div class="col-s-12 col-m-10 col-m-push-1 col-l-10 col-l-push-1" id="bienvenue">
+                <div class="col-s-12 col-m-8 col-l-6 col-m-push-2 col-l-push-3" id="bienvenue">
                     <?php
                     if ($id!=0)
                     {
@@ -22,21 +22,40 @@ include("debut.php");
 
                     if (empty($_POST['pseudo']))
                     {
-                        echo '<h1>Inscription 1/2</h1>';
-                        echo '<form method="post" action="register.php" enctype="multipart/form-data">
-    <fieldset><legend>Identifiants</legend>
-    <label for="pseudo">* Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" /> (le pseudo doit contenir entre 3 et 15 caractères)<br />
-    <label for="password">* Mot de Passe :</label><input type="password" name="password" id="password" /><br />
-    <label for="confirm">* Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" />
-    </fieldset>
-    <fieldset><legend>Contacts</legend>
-    <label for="email">* Votre adresse Mail :</label><input type="text" name="email" id="email" /><br />
-    </fieldset>
-    <p>Les champs précédés d un * sont obligatoires</p>
-    <p><input type="submit" value="S\'inscrire" /></p></form>
-    </div>
-    </body>
-    </html>';
+//                        echo '<h1>Inscription 1/2</h1>';
+//                        echo '<form method="post" action="register.php" enctype="multipart/form-data">
+//    <fieldset><legend>Identifiants</legend>
+//    <label for="pseudo">* Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" /> (le pseudo doit contenir entre 3 et 15 caractères)<br />
+//    <label for="password">* Mot de Passe :</label><input type="password" name="password" id="password" /><br />
+//    <label for="confirm">* Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" />
+//    </fieldset>
+//    <fieldset><legend>Contacts</legend>
+//    <label for="email">* Votre adresse Mail :</label><input type="text" name="email" id="email" /><br />
+//    </fieldset>
+//    <p>Les champs précédés d un * sont obligatoires</p>
+//    <p><input type="submit" value="S\'inscrire" /></p></form>
+//    </div>
+//    </body>
+//    </html>';
+
+
+                        ?>
+
+                        <div class="col-s-12 col-m-12 col-l-12">
+                            <div class="form-style-8 " style="text-align: center; width:100%; margin: 15px 0 66px 0;">
+                                <h2>Inscription 1/2</h2>
+                                <form method="post" action="register.php" enctype="multipart/form-data">
+                                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" /> (le pseudo doit contenir entre 3 et 15 caractères)</br></br>
+                                    <input type="password" name="password" id="password" placeholder="Mot de passe" />
+                                    <input type="password" name="confirm" id="confirm" placeholder="Confirmer le mot de passe"/>
+                                    <input type="email" name="email" id="email" placeholder="Votre E-mail"/>
+                                    <input type="submit" value="S'inscrire" />
+                                </form>
+                                </br></br>
+                            </div>
+                        </div>
+
+                        <?php
 
                     }
 
@@ -116,10 +135,29 @@ include("debut.php");
 
                             $query->CloseCursor();
 
-                            echo'<h1>Inscription 2/2 terminée</h1>';
-                            echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit</p>
-        <p>Un email de confirmation vous a été envoyé a votre adresse email</p>
-    	<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
+//                            echo'<h1>Inscription 2/2 terminée</h1>';
+//                            echo'<p>Bienvenue '.stripslashes(htmlspecialchars($_POST['pseudo'])).' vous êtes maintenant inscrit</p>
+//        <p>Un email de confirmation vous a été envoyé a votre adresse email</p>
+//    	<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>';
+
+
+                            ?>
+
+                            <div class="col-s-12 col-m-12 col-l-12">
+                                <div class="form-style-8 " style="text-align: center; width:100%; margin: 15px 0 66px 0;">
+                                    <h2>Inscription 2/2</h2>
+                                    <form>
+                                        <p>Bienvenue <strong><?php echo(stripslashes(htmlspecialchars($_POST['pseudo'])))?></strong> vous êtes maintenant inscrit</p>
+                                        <p>Un email de confirmation vous a été envoyé a votre adresse email</p></br>
+                                        <p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d accueil</p>
+                                    </form>
+                                    </br></br>
+                                </div>
+                            </div>
+
+                            <?php
+
+
 
                             $email = $_POST['email'];
 
@@ -147,7 +185,7 @@ include("debut.php");
                         else
                         {
                             echo'<h1>Inscription interrompue</h1>';
-                            echo'<p>Une ou plusieurs erreurs se sont produites pendant l incription</p>';
+                            echo'<p>Une ou plusieurs erreurs se sont produites pendant l\'incription</p>';
                             echo'<p>'.$i.' erreur(s)</p>';
                             echo'<p>'.$pseudo_erreur1.'</p>';
                             echo'<p>'.$pseudo_erreur2.'</p>';

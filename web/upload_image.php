@@ -64,7 +64,7 @@ include("debut.php");
                                         <img id="output"/>
                                         <input type="hidden" value="" name="id_cadre" id="id_cadre2">
                                         <input type="hidden" value="" name="b64_img" id="b64_img">
-                                        <input type="submit" value="Upload Image" id="uploadbutton" name="submit" style="display: none" disabled>
+                                        <input class="button" type="submit" value="Upload Image" id="uploadbutton" name="submit" style="display: none" disabled>
                                     </form>
                                 </div>
                             </div>

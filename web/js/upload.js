@@ -54,63 +54,17 @@ b64_img = document.querySelector('#b64_img');
 width = 800;
 height = 600;
 
-// upload_img.onchange = function (e) {
-//     e.preventDefault();
-//
-//     var file = this.files[0];
-//     var url = URL.createObjectURL(file);
-//     var img = new Image(640, 480);
-//
-//     document.getElementById('img-preview').setAttribute('src', url);
-//     img.src = url;
-//     img.setAttribute('crossOrigin', 'anonymous');
-//     img.setAttribute('id', 'image');
-// };
-
-
-// navigator.getMedia = ( navigator.getUserMedia ||
-// navigator.webkitGetUserMedia ||
-// navigator.mozGetUserMedia ||
-// navigator.msGetUserMedia);
-//
-// navigator.getMedia(
-//     {
-//         video: true,
-//         audio: false
-//     },
-//     function(stream) {
-//         if (navigator.mozGetUserMedia) {
-//             video.mozSrcObject = stream;
-//         } else {
-//             var vendorURL = window.URL || window.webkitURL;
-//             video.src = vendorURL.createObjectURL(stream);
-//         }
-//         video.play();
-//     },
-//     function(err) {
-//         console.log("An error occured! " + err);
-//     }
-// );
-//
-// video.addEventListener('canplay', function(ev){
-//     if (!streaming) {
-//         height = video.videoHeight / (video.videoWidth/width);
-//         video.setAttribute('width', width);
-//         video.setAttribute('height', height);
-//         canvas.setAttribute('width', width);
-//         canvas.setAttribute('height', height);
-//         streaming = true;
-//     }
-// }, false);
-
-
-
 upload_img.addEventListener('click', function(ev){
 
     upload_img.onchange = function (e) {
         // e.preventDefault();
 
         var file = this.files[0];
+        if (file == undefined) {
+            uploadbutton.disabled = true;
+            document.getElementById('img-preview').setAttribute('src', null);
+            return;
+        }
         var url = URL.createObjectURL(file);
         var img = new Image(640, 480);
 

@@ -9,7 +9,7 @@ include("debut.php");
         <?php
         include("header.php");
         ?>
-        <div class="content">
+        <div class="content" style="text-align: center">
             <?php
             if (!isset($_SESSION['id']) || empty($_SESSION['id']))
             {

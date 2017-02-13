@@ -9,7 +9,7 @@ include("debut.php");
             <?php
             include("header.php");
             ?>
-            <div class="content">
+            <div class="content" style="text-align: center">
                 <?php
                 if ($id!=0)
                 {
@@ -26,18 +26,30 @@ include("debut.php");
                 if (!isset($_POST['pseudo']))
                 {
                     ?>
-                    <form method="post" action="connexion.php">
-	                <fieldset>
-	                <legend>Connexion</legend>
-	                <p>
-	                <label for="pseudo">Pseudo :</label><input name="pseudo" type="text" id="pseudo" /><br />
-	                <label for="password">Mot de Passe :</label><input type="password" name="password" id="password" />
-	                </p>
-	                <p><input type="submit" value="Connexion" /></p>
-	                </fieldset>
-                    </form></br>
-	                <a href="register.php">Pas encore inscrit ?</a></br>
-	                <a href="new_pass.php">Mot de passe oublie</a>
+                    <div class="row">
+                        <div class="col-s-12 col-m-8 col-l-6 col-m-push-2 col-l-push-3">
+                            <div class="form-style-8 " style="text-align: center; width:100%; margin: 15px 0 66px 0;">
+                                <h2>Connectez vous à votre compte</h2>
+                                <form method="post" action="connexion.php">
+                                    <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" />
+                                    <input type="password" name="password" id="password" placeholder="Mot de passe" />
+                                    <input type="submit" value="Connexion" />
+                                </form>
+                                </br></br>
+
+                                <button class="button">
+                                    <a href="register.php">Pas encore inscrit ?</a>
+                                </button>
+                                <button class="button">
+                                    <a href="new_pass.php">Mot de passe oublie</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                     <?php
                 }
 

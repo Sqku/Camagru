@@ -25,16 +25,26 @@ include("debut.php");
                         if (!isset($_POST['password']))
                         {
                             ?>
-                            <form method="post" action="set_pass.php?log=<?=$login?>&cle=<?=$cle?>">
-                                <fieldset>
-                                    <legend>mot de passe oublie</legend>
-                                    <p>
-                                        <label for="password"> Nouveau mot de Passe :</label><input type="password" name="password" id="password" /><br />
+<!--                            <form method="post" action="set_pass.php?log=--><?//=$login?><!--&cle=--><?//=$cle?><!--">-->
+<!--                                <fieldset>-->
+<!--                                    <legend>mot de passe oublie</legend>-->
+<!--                                    <p>-->
+<!--                                        <label for="password"> Nouveau mot de Passe :</label><input type="password" name="password" id="password" /><br />-->
+<!---->
+<!--                                        <label for="confirm"> Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" />-->
+<!--                                    </p>-->
+<!--                                </fieldset>-->
+<!--                                <p><input type="submit" value="Reinitialiser le mot de passe" /></p></form>-->
 
-                                        <label for="confirm"> Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" />
-                                    </p>
-                                </fieldset>
-                                <p><input type="submit" value="Reinitialiser le mot de passe" /></p></form>
+                            <div class="form-style-8 " style="text-align: center; width:100%; margin: 15px 0 66px 0;">
+                                <h2>Mot de passe oublié</h2>
+                                <form method="post" action="new_pass.php">
+                                    <input type="password" name="password" id="password" placeholder="Nouveau mot de passe" />
+                                    <input type="password" name="confirm" id="confirm" placeholder="Confirmer le mot de passe" />
+                                    <input type="submit" value="Réinitialiser le mot de passe" />
+                                </form>
+                            </div>
+
                             <?php
                         }
                         else
