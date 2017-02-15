@@ -37,12 +37,8 @@ include("debut.php");
                                 </form>
                                 </br></br>
 
-                                <button class="button">
-                                    <a href="register.php">Pas encore inscrit ?</a>
-                                </button>
-                                <button class="button">
-                                    <a href="new_pass.php">Mot de passe oublie</a>
-                                </button>
+                                <a class="button" href="register.php">Pas encore inscrit ?</a>
+                                <a class="button" href="new_pass.php">Mot de passe oublie</a>
                             </div>
                         </div>
                     </div>
@@ -61,6 +57,7 @@ include("debut.php");
                     {
                         $message = 'Veuillez completer le champs "Pseudo" et le champs "Mot de Passe" </br> 
                                     Cliquez <a href="./connexion.php">ici</a> pour revenir à la page précédente';
+                        echo $message;
                     }
                     else
                     {

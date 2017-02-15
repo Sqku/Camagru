@@ -4,12 +4,12 @@ include("debut.php");
 ?>
 
 <body>
-<div class="site-container"> <!-- 1 -->
-    <div class="site-pusher"> <!-- 2 -->
+<div class="site-container">
+    <div class="site-pusher">
         <?php
         include("header.php");
         ?>
-        <div class="content"> <!-- 3 -->
+        <div class="content">
             <?php
             if (!isset($_SESSION['id']) || empty($_SESSION['id']))
             {
@@ -44,9 +44,7 @@ include("debut.php");
                             </div>
                             <div class="col-s-12 col-m-12 col-l-12">
                                 <div class="col-s-4 col-m-4 col-l-4">
-                                    <button class="button">
-                                        <a href="upload_image.php">Uploader une image</a>
-                                    </button>
+                                    <a class="button" href="upload_image.php">Uploader une image</a>
                                 </div>
 
                                 <div class="col-s-4 col-m-4 col-l-4">
@@ -60,14 +58,6 @@ include("debut.php");
                                         <input type="hidden" value="" name="id_cadre" id="id_cadre">
                                         <button class="button" type="submit" id="savebutton" style="display:none" disabled>Enregistrer</button>
                                     </form>
-<!--                                    <form id="upload_form" action="upload.php" method="POST" enctype="multipart/form-data">-->
-<!--                                        Uploader une image :-->
-<!--                                        <input type="file" value="" src "" name="fileToUpload" id="upload_img" accept="image/*">-->
-<!--                                        <img id="output"/>-->
-<!--                                        <input type="hidden" value="" name="id_cadre" id="id_cadre2">-->
-<!--                                        <input type="hidden" value="" name="b64_img" id="b64_img">-->
-<!--                                        <input type="submit" value="Upload Image" id="uploadbutton" name="submit" style="display: none" disabled>-->
-<!--                                    </form>-->
                                 </div>
                             </div>
                         </div>
@@ -131,17 +121,16 @@ include("debut.php");
 
 
             <img src="" id="photo" alt="photo" style="display: none">
-            <?php
-            include("footer.php");
-            ?>
-            <div class="site_cache" id="site_cache"></div>
 
-        </div><!-- 2 -->
-    </div> <!-- 1 -->
+        </div>
+        <?php
+        include("footer.php");
+        ?>
+        <div class="site_cache" id="site_cache"></div>
+    </div>
 </div>
 <script type="text/javascript" src="js/menu.js"></script>
 <script src="js/camera.js" type="text/javascript"></script>
-<!--<script src="js/upload.js" type="text/javascript"></script>-->
 
 </body>
 
