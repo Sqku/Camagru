@@ -96,7 +96,7 @@ upload_img.addEventListener('click', function(ev){
             // this.style.border = '1px solid red';
             document.getElementById('apercu').setAttribute('src', this.src);
             document.getElementById('id_cadre2').setAttribute('value', this.alt);
-            console.log('cadre_' + this.alt + ' Clicked');
+            // console.log('cadre_' + this.alt + ' Clicked');
             uploadbutton.disabled = false;
         });
     }
