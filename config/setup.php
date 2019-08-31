@@ -21,12 +21,12 @@ catch (\PDOException $e)
     echo 'Error PDO: '.$e->getMessage();
     die();
 }
-echo 'Are you sure you want to do this ?! (yes/no)  ';
-flush();
-ob_flush();
-$confirmation  =  trim( fgets( STDIN ) );
-if ($confirmation !== 'yes' && $confirmation !== 'y')
-    exit (0);
+//echo 'Are you sure you want to do this ?! (yes/no)  ';
+//flush();
+//ob_flush();
+//$confirmation  =  trim( fgets( STDIN ) );
+//if ($confirmation !== 'yes' && $confirmation !== 'y')
+//    exit (0);
 echo 'Step 1 : Clear upload images files.'.PHP_EOL;
 $uploads_dir = dirname(__DIR__).'/web/img/uploads/';
 $uploads_files = glob($uploads_dir.'*.png');
